@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHY79CGXQ2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHY79CGXQ2');
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/layout.js"></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description"
+    content="Collaboration musicales, cours de musique en Suisse romande et France voisine (Haute-Savoie, Ain) avec Aro Ramamonjy." />
+
+  <title>Aro Ramamonjy</title>
+
+  <link rel="icon" type="image/png" href="/img/favicon_nobg.png" />
+
+  <!-- Lien vers Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <link rel="preload" as="image" href="img/DSC00546.jpg">
+
+  <style>
+
+.concept-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+
+      width: 100%;
+      height: 100%;
+
+      padding: var(--spacing);
+      background: var(--color-white);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+
+      transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+    }
+
+    .concept-card:hover {
+      transform: translateY(-6px);
+
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.12);
+    }
+
+    .concept-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .concept-card h4 {
+      margin-bottom: 15px;
+    }
+
+    .concept-icon {
+      width: 150px;
+      height: auto;
+    }
+
+    /* 🔥 MOBILE: image passe SOUS le texte */
+    @media (max-width: 768px) {
+      .concept-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .concept-icon {
+        order: 2;
+        /* image après */
+        width: 120px;
+        margin-top: 10px;
+      }
+
+      .concept-card>div {
+        order: 1;
+        /* texte avant */
+      }
+    }
+
+    /* Pour les rando */
+    .card-custom {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+
+      box-shadow: var(--shadow-soft);
+
+      display: flex;
+      flex-direction: column;
+
+      height: 100%;
+
+      padding: var(--spacing);
+    }
+
+    .img-card {
+      width: 100%;
+      height: 380px;
+
+      object-fit: cover;
+
+      border-radius: var(--radius);
+      transition: transform 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .img-card {
+        height: 260px;
+      }
+    }
+
+    .card-custom:hover .img-card {
+      transform: scale(1.03);
+    }
+
+    .card-title {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .card-description {
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .card-infos {
+      list-style: none;
+
+      padding: 0;
+      margin: 0;
+    }
+
+    .card-infos li {
+      margin-bottom: 0.5rem;
+    }
+
+    .card-footer-custom {
+      margin-top: auto;
+
+      padding-top: 2rem;
+
+      text-align: center;
+    }
+
+    .card-content {
+      padding: var(--spacing);
+
+      display: flex;
+      flex-direction: column;
+
+      flex-grow: 1;
+    }
+
+    .img-fluid {
+      transition: transform 0.3s ease;
+    }
+
+    /* Pour les cartes/box concepts */
+    .concept-card {
+      border-radius: var(--radius);
+      padding: var(--spacing);
+      box-shadow: var(--shadow-medium);
+
+      /*border: 10px solid #ffe4d4;*/
+      color: var(--color-primary);
+      text-align: center;
+
+      position: relative;
+      /* indispensable */
+      overflow: hidden;
+      /* évite les débordements */
+    }
+
+    .concept-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      transition: background 0.3s ease;
+    }    
+
+    .concept-card>* {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Header / Hero -->
+  <header class="header-img header-home">
+    <!-- Overlay -->
+    <!--<div class="header-overlay"></div>-->
+
+    <div id="header" data-navbar="navbar-img">
+    </div>
+
+    <!-- Text Hero -->
+    <div class="overlay-text text-center">
+      <img src="img/prenom_blanc.png" alt="Aro Ramamonjy" />
+      <h1></h1>
+    </div>
+
+  </header>
+
+  <main>
+    <!-- Section bienvenue -->
+    <section id="welcome" class="py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- TEXTE -->
+          <div class="col-md-6">
+            <h2>La musique au service de vos projets, de la création à la scène.</h2>
+
+            <p>
+              Multi-instrumentiste diplômé de la Haute École de Musique de Lausanne (HEMU), 
+              je partage mon activité entre la scène, l’enseignement, la création et le travail autour de la musique.
+            </p>
+
+            <p>
+              Cours et accompagnement musical, concerts et animations, enregistrement, arrangements ou transcriptions : 
+              j’interviens dans des contextes variés, avec une approche humaine, attentive et adaptée à chaque demande.
+            </p>
+
+            <p>
+              Découvrez ci-dessous mes différentes activités et n’hésitez pas à me contacter pour en discuter.
+            </p>
+            
+            <!--<div class="text-center mt-3 mb-5">
+              <a href="about.html" class="btn-red mt-3 d-inline-block text-center">EN SAVOIR PLUS</a>
+            </div>-->
+          </div>
+          <!-- IMAGE -->
+          <div class="col-md-6 d-flex justify-content-center">
+            <!--<img src="img/phototronquee.jpg" style="height: 50vh;" class="img-fluid rounded"
+              alt="Randonnée en Val de Bagnes" loading="lazy" decoding="async" />-->
+              <img src="img/DSC00546-coupee.jpg" style="height: 50vh;" class="img-fluid rounded"
+              alt="Randonnée en Val de Bagnes" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section instruments -->
+  <section class="section-spacing py-5">
+    <div class="container">
+      <h2>Multi-instrumentiste</h2>
+
+<p> Basse, guitare, contrebasse, saxophone… La pratique de plusieurs instruments me permet de proposer une palette sonore variée et de m’adapter à de nombreux contextes musicaux. </p>
+<p> Cette polyvalence prend tout son sens dans les petites formations, les duos ou les animations, où chaque instrument peut apporter une couleur et une dynamique différente à la prestation. Elle se retrouve également dans l’enseignement, avec la possibilité d’aborder différents instruments et une grande variété de styles, du classique au jazz, en passant par la variété, le rock ou encore le métal. </p>
+<p> Découvrez les différents instruments et les possibilités qu’ils offrent, aussi bien sur scène que dans le cadre des cours. </p>
+      <div class="row g-4">
+
+        <!-- Concept 1 -->
+        <div class="col-12 col-lg-6 d-flex">
+          <article class="concept-card">
+            <div>
+              <h4 id="Basse">Basse</h4>
+              <p>
+                La basse électrique est le cœur battant du groove. Véritable pilier rythmique et harmonique, elle lui permet de poser les fondations solides indispensables aux musiques actuelles et à la fusion. Il aborde cet instrument avec un sens aigu du placement, liant la batterie et la mélodie dans un mouvement fluide et percutant.
+              </p>
+            </div>
+            <img src="img/basse.png" alt="Icône jumelle" class="concept-icon icon-small">
+          </article>
+        </div>
+
+        <!-- Concept 2 -->
+        <div class="col-12 col-lg-6 d-flex">
+          <article class="concept-card">
+            <div>
+              <h4 id="Contrebasse">Contrebasse</h4>
+              <p>
+                Dans le jazz plus traditionnel et acoustique, la contrebasse devient son terrain de jeu privilégié. Aro apprécie particulièrement le rapport physique à l'instrument et la profondeur organique de son acoustique. À la contrebasse, il explore la richesse des lignes de marche (walking bass) et insuffle une chaleur boisée et authentique aux formations jazz qu'il accompagne.
+              </p>
+            </div>
+            <img src="img/contrebasse.png" alt="Icône palette" class="concept-icon icon-small">
+          </article>
+        </div>
+
+        <!-- Concept 3 -->
+        <div class="col-12 col-lg-6 d-flex">
+          <article class="concept-card">
+            <div>
+              <h4 id="Saxophone">Saxophone</h4>
+              <p>
+                Le saxophone (notamment le soprano) représente pour lui le prolongement direct de sa voix et de son expressivité mélodique. C’est l’instrument du lyrisme, de l’éclat et de l’improvisation pure. À travers son souffle, Aro cherche à raconter des histoires intenses, apportant des couleurs dynamiques et une grande sensibilité poétique à ses compositions.
+              </p>
+            </div>
+            <img src="img/saxophone.png" alt="Icône tavillon" class="concept-icon icon-small">
+          </article>
+        </div>
+
+        <!-- Concept 4 -->
+        <div class="col-12 col-lg-6 d-flex">
+          <article class="concept-card">
+            <div>
+              <h4 id="Guitare">Guitare</h4>
+              <p>
+                La guitare occupe une place essentielle dans son univers, à la fois comme outil de composition, d'accompagnement et d'enseignement. Qu'elle soit acoustique ou électrique, sa polyvalence lui permet de structurer ses idées harmoniques, de s'accompagner au chant, et de transmettre les bases fondamentales de la musique à ses élèves de manière très accessible.
+              </p>
+            </div>
+            <img src="img/guitare.png" alt="Icône sac de randonnée" style="width: 100px;"
+              class="concept-icon icon-small">
+          </article>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+    <!-- Section prestations -->
+    <section id="prestations" class="container-fluid">
+      <div class="container my-5">
+        <div class="row">
+          <h2 class="mb-4">Prestations proposées</h2>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <article class="concept-card bg-concept bg-concept-1 h-100 flex-column justify-content-between text-center">
+              <div>
+                <h4>Animation Événementielle (Live & Gigs)</h4>
+                <p> <strong>Apportez une touche d'élégance et de groove à vos événements.</strong></p>
+                <p>
+                  Qu'il s'agisse d'un cocktail d'entreprise, d'un mariage, d'une soirée privée ou d'une programmation d'hôtel, je propose des prestations de musique live sur mesure. En solo, en duo ou en formation complète (jazz, fusion, musiques actuelles), j'adapte le répertoire et le volume sonore pour créer l'ambiance idéale, de l'écoute feutrée à l'énergie festive.
+                </p>
+              </div>
+              <div class="text-center mt-5">
+                <a class="btn-red text-center mt-5 mb-5" href="musique.html">
+                  Voir mes groupes</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <article class="concept-card bg-concept bg-concept-2 h-100 flex-column justify-content-between text-center">
+              <div>
+                <h4>Cours de Musique & Ateliers</h4>
+                <p><strong>Découvrez le plaisir de jouer et progressez à votre rythme.</strong></p>
+                <p>
+                  Diplômé de la HEMU, je propose des cours particuliers de guitare et de basse électrique pour tous les niveaux, du grand débutant au musicien avancé. Mon approche est basée sur le plaisir, l'écoute et la bienveillance. J'anime également des ateliers de groupe et des masterclasses axés sur l'initiation au jazz, la pratique collective et l'art de l'improvisation.
+                </p>
+              </div>
+              <div class="text-center mt-5">
+                <a class="btn-red mt-3" href="contact.html">
+                  Plus d'info</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <article class="concept-card bg-concept bg-concept-5 h-100 flex-column justify-content-between text-center">
+              <div>
+                <h4>Cours de Maths / Physique et Acoustique</h4>
+                <p><strong>BLabla.</strong></p>
+                <p>
+                  blablabl 
+                </p>
+              </div>
+              <div class="text-center mt-5">
+                <a class="btn-red mt-3" href="contact.html">
+                  Plus d'info</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <article class="concept-card bg-concept bg-concept-3 h-100 flex-column justify-content-between text-center">
+              <div>
+                <h4>Collaboration, Studio & Remplacement (Session)</h4>
+                <p><strong>Un musicien polyvalent et à l'écoute pour vos projets.</strong></p>
+                <p>
+                  Vous cherchez un bassiste, un contrebassiste ou un saxophoniste pour un enregistrement en studio, une session de composition ou un remplacement de dernière minute sur scène ? Grâce à ma formation rigoureuse et mon expérience de la scène, je m'intègre rapidement à votre univers musical pour enrichir vos morceaux et garantir une performance live irréprochable.
+                </p>
+              </div>
+              <div class="text-center mt-5">
+                <a class="btn-red mt-3" href="contact.html">
+                  Plus d'info</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <article class="concept-card bg-concept bg-concept-4 h-100 flex-column justify-content-between text-center">
+              <div>
+                <h4>Aide à la Composition</h4>
+                <p><strong>Donnez vie à vos idées musicales.</strong></p>
+                <p>
+                  Vous avez une mélodie en tête, un texte, ou une intention émotionnelle mais vous ne savez pas comment la développer ? Je vous accompagne dans le processus créatif. Ensemble, nous structurons vos morceaux, trouvons les suites d'accords idéales et développons l'univers sonore qui correspond parfaitement à votre projet artistique.
+                </p>
+              </div>
+              <div class="text-center mt-5">
+                <a class="btn-red mt-3" href="contact.html">
+                  Plus d'info</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <article class="concept-card bg-concept bg-concept-6 h-100 flex-column justify-content-between text-center">
+              <div>
+                <h4>Transcription & Copisterie </h4>
+                <p><strong>Traduisez votre musique sur partition.</strong></p>
+                <p>
+                  Vous avez besoin d'une partition claire pour protéger vos œuvres, pour vos musiciens de scène ou pour vos élèves ? À partir d'un simple enregistrement audio, je réalise une transcription fidèle et précise de vos morceaux. Je livre des partitions professionnelles, lisibles et adaptées (tablatures, grilles de jazz, conducteurs complets).
+                </p>
+              </div>
+              <div class="text-center mt-5">
+                <a class="btn-red mt-3" href="contact.html">
+                  Plus d'info</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section lien portfolio -->
+    <section class="container-fluid g-0">
+      <a href="musique.html#groupes" class="text-decoration-none">
+        <div class="image-block d-flex align-items-center justify-content-center text-center"
+          style="background-image: url('img/Los_Azulejos3.png'); background-size: cover; background-position: center;">
+
+          <div style="color: white; text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);">
+            <h5>Ils font appel à mes services</h5>
+            <h2>Collaborations actuelles</h2>
+            <i class="fas fa-long-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- Section Instagram -->
+    <section class="container-fluid py-5">
+      <div class="row g-2 align-items-center">
+
+        <!-- Bloc Instagram -->
+        <div class="col-12 col-lg-4 text-center  d-flex flex-column justify-content-center">
+          <!-- Lien vers le compte Instagram -->
+          <a href="https://www.instagram.com/aroramamonjy/">
+            <i class="fab fa-instagram mb-3"></i>
+            <p class="mb-2 fw-bold">SUIVEZ MES AVENTURES</p>
+            @aroramamonjy
+          </a>
+          <div class="gap-50" style="width:100%; height:50px;"></div>
+        </div>
+
+        <!-- Images des réels -->
+        <div class="col-6 col-lg-2">
+          <a href="https://www.instagram.com/reel/DViVLnUDNWW/">
+            <img src="img-instagram/reel-1-Mars.png" class="img-fluid w-100" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <a href="https://www.instagram.com/reel/DL3WWv6ITA4/" target="_blank">
+            <img src="img-instagram/reel-2-Contrebasse-EasyLiving.png" class="img-fluid w-100" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <a href="https://www.instagram.com/p/Cx7WenXIJj5/" target="_blank">
+            <img src="img-instagram/reel-3-basse-YesorNo.png" class="img-fluid w-100" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <a href="https://www.instagram.com/reel/DKvG8g6oUuC/" target="_blank">
+            <img src="img-instagram/reel-4-guitare-ComeTogether.png" class="img-fluid w-100" loading="lazy" decoding="async" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+</body>
+
+</html>

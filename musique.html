@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHY79CGXQ2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHY79CGXQ2');
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/filter.js"></script>
+  <script src="js/portfolio.js"></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Aro Ramamonjy</title>
+
+  <link rel="icon" type="image/png" href="/img/favicon_nobg.png" />
+
+  <!-- Lien vers Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /*body {
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 0.5px;
+}*/
+
+    .section-spacing {
+      padding: 90px 0;
+    }
+
+    .icon-small {
+      width: 100px;
+    }
+
+    /*Style de previous rando */
+
+    .gallery-item {
+      color: var(--color-bg-main);
+
+      height: 400px;
+      position: relative;
+      overflow: hidden;
+
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-item {
+        height: 300px;
+      }
+    }
+
+    .gallery-item .image-block {
+      height: 100%;
+    }
+
+    .gallery-item h2,
+    .gallery-item h5 {
+      color: var(--color-bg-main);
+      margin: 0;
+    }
+
+    .image-block {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover .image-block {
+      transform: scale(1.05);
+    }
+
+    .filter-btn.active {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+
+    .gallery-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Container boutons filtres */
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Boutons filtres */
+    .filter-btn {
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+      min-width: fit-content;
+    }
+
+    /* Hover desktop */
+    .filter-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Etat actif */
+    .filter-btn.active {
+      background-color: var(--color-primary);
+      color: white;
+      border-color: var(--color-primary);
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+
+      .filter-container {
+        gap: 8px;
+        padding: 0 12px;
+      }
+
+      .filter-btn {
+        font-size: 0.85rem;
+        padding: 8px 14px;
+      }
+
+    }
+  
+  </style>
+
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header-simple">
+    <div id="header" data-navbar="navbar-default" data-logo="img/prenom.png">
+    </div>
+  </header>
+
+    <!-- Section groupes -->
+     <!-- style="background-color: var(--color-primary); color: var(--color-white);"-->
+  <section class="section-spacing container-fluid p-0">
+    <div class="container mb-5">
+      <h2 id="groupes" class="text-center">Découvrez les différents projets où je participe</h2>
+      <h5 class="text-center mt-3 mb-5">
+        Une de ces randonnées vous donne envie ? N'hésitez pas à me contacter pour organiser ensemble une sortie sur
+        mesure !
+      </h5>
+    </div>
+  <!-- filtres -->
+     <div class="container text-center mb-5">
+      <div class="filter-container">
+        <button class="btn-red btn-outline-dark filter-btn active" data-filter="all">Tout</button>
+        <button class="btn-red btn-outline-dark filter-btn" data-filter="jazz">Jazz</button>
+        <button class="btn-red btn-outline-dark filter-btn" data-filter="pop">Pop</button>
+        <button class="btn-red btn-outline-dark filter-btn" data-filter="other">Autre</button>
+      
+        <button class="btn-red btn-outline-dark filter-btn" data-filter="instru">Instrumental</button>
+        <button class="btn-red btn-outline-dark filter-btn" data-filter="chant">Chant</button>
+        </div>
+    </div>
+<!-- 3 articles -->
+    <div class="row g-0">
+
+      <article class="col-12 col-md-4 gallery-item" data-category="jazz instru">
+        <!--sorties/pyrotyri/pyrotyri.html-->
+        <a href="https://www.instagram.com/py_ro_ty_ri/" aria-label="Voir l'atelier aquarelle en cabane">
+          <div class="image-block" style="background-image: url('sorties/pyrotyri/Pyrotyri.jpg');">
+            <div class="text text-center">
+              <h2>Pyrotyri Quintet</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-12 col-md-4 gallery-item" data-category="jazz pop instru">
+        <a href="https://www.instagram.com/aroramamonjy" aria-label="Voir la randonnée peindre en nature">
+          <div class="image-block" style="background-image: url('img/phototronquee.jpg');">
+            <div class="text text-center">
+              <h2>Aro solo</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-12 col-md-4 gallery-item" data-category="jazz instru">
+        <!--sorties/RSYLO/RYSLO.html-->
+        <a href="https://www.instagram.com/loris.hry/" aria-label="Voir la randonnée peindre en nature">
+          <div class="image-block" style="background-image: url('sorties/RSYLO/ryslo.jpg');">
+            <div class="text text-center">
+              <h2>RYSLO</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-12 col-md-4 gallery-item" data-category="jazz chant">
+        <!--sorties/moondancer/moondancer.html-->
+        <a href="https://www.instagram.com/moondancer_jazz/" aria-label="Voir l'atelier course d'école juillet 2026">
+          <div class="image-block" style="background-image: url('sorties/Course_ecole_juillet26/20260707_074823.webp');">
+            <div class="text text-center">
+              <h2>Moondancer</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-12 col-md-4 gallery-item" data-category="other chant">
+        <!--sorties/Bab_Lo/Bab_Lo.html-->
+        <a href="https://www.instagram.com/bab_et_lo/" aria-label="Voir l'atelier course d'école juillet 2026">
+          <div class="image-block" style="background-image: url('sorties/Bab_Lo/bab_lo.png');">
+            <div class="text text-center">
+              <h2>Bab & Lo</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-12 col-md-4 gallery-item" data-category="pop chant">
+        <!--sorties/Mathilde_Elise/Mathilde_Elise.html-->
+        <a href="https://www.instagram.com/mathildeelisee/" aria-label="Voir la randonnée aquarelle petit-mont">
+          <div class="image-block" style="background-image: url('sorties/Mathilde_Elise/Mathilde_Elise.jpg');">
+            <div class="text text-center">
+              <h2>Mathilde Elise</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-12 col-md-4 gallery-item" data-category="pop chant">
+        <!--sorties/Mayte/Mayte.html-->
+        <a href="https://www.instagram.com/mayte.ed/" aria-label="Voir la randonnée aquarelle petit-mont">
+          <div class="image-block" style="background-image: url('sorties/Mayte/mayte.png');">
+            <div class="text text-center">
+              <h2>Mayté</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-12 col-md-4 gallery-item" data-category="pop chant">
+        <!--sorties/anima/anima.html-->
+        <a href="https://www.instagram.com/a.n.i.m.a.music/" aria-label="Voir la randonnée aquarelle petit-mont">
+          <div class="image-block" style="background-image: url('sorties/anima/ANIMA.webp');">
+            <div class="text text-center">
+              <h2>ANIMA</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-12 col-md-4 gallery-item" data-category="other chant">
+        <!--sorties/Ninazette/Ninazette.html-->
+        <a href="https://www.instagram.com/ninazette/" aria-label="Voir la randonnée aquarelle petit-mont">
+          <div class="image-block" style="background-image: url('sorties/Ninazette/ninazette.webp');">
+            <div class="text text-center">
+              <h2>Ninazette</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-12 col-md-4 gallery-item" data-category="pop chant">
+        <!--sorties/chapvert/chapvert.html-->
+        <a href="https://www.instagram.com/chapvertmusic/" aria-label="Voir la randonnée European walking - Chocolat et Fromage">
+          <div class="image-block" style="background-image: url('sorties/chapvert/chapvert.jpg');">
+            <div class="text text-center">
+              <h2>Chapvert</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-12 col-md-4 gallery-item" data-category="pop chant">
+        <!--sorties/Envol/Envol.html--> 
+        <a href="https://www.instagram.com/envol.duo/" aria-label="Voir la randonnée European walking - Chocolat et Fromage">
+          <div class="image-block" style="background-image: url('sorties/Envol/envol.jpg');">
+            <div class="text text-center">
+              <h2>Envol Duo</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-12 col-md-4 gallery-item" data-category="pop chant">
+        <a href="https://www.instagram.com/alex_breahna/"
+          aria-label="Voir la randonnée L’automne sur les Hauts de Champéry">
+          <div class="image-block"
+            style="background-image: url('sorties/Alex_Aro/Alex_Aro2.png\ -\ Copie.jpeg');">
+            <div class="text text-center">
+              <h2>Alex & Aro</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-12 col-md-4 gallery-item" data-category="other chant">
+        <a href="https://www.instagram.com/pachakutiy_rap_chamanique/"
+          aria-label="Voir la randonnée L’automne sur les Hauts de Champéry">
+          <div class="image-block"
+            style="background-image: url('sorties/pachakutiy/pachakutiy.png');">
+            <div class="text text-center">
+              <h2>Pachakutiy</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-12 col-md-4 gallery-item" data-category="pop chant">
+        <!--sorties/Pablo/Pablo.html-->
+        <a href="https://www.instagram.com/pablo.demena" aria-label="Voir la Course d'école au Mont Gibloux">
+          <div class="image-block" style="background-image: url('sorties/Pablo/pablo.png');">
+            <div class="text text-center">
+              <h2>Pablo Demena</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+       <article class="col-12 col-md-4 gallery-item" data-category="pop chant">
+        <!--sorties/totaiota/totaiota.html-->
+        <a href="https://www.instagram.com/totaiota_official/" aria-label="Voir la Randonnée sur les poyas">
+          <div class="image-block" style="background-image: url('sorties/totaiota/totaiota.jpg');">
+            <div class="text text-center">
+              <h2>Totaiota</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+            <article class="col-12 col-md-4 gallery-item" data-category="pop chant">
+              <!--sorties/alma/alma.html-->
+        <a href="https://www.instagram.com/iamalma.ch/" aria-label="Voir la Randonnée de l’épicéa au tavillon">
+          <div class="image-block" style="background-image: url('sorties/alma/alma.png');">
+            <div class="text text-center">
+              <h2>Alma</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-12 col-md-4 gallery-item" data-category="other instru">
+        <!--sorties/Los_Azulejos/Los_Azulejos.html-->
+        <a href="https://www.instagram.com/losazulejos_music/"
+          aria-label="Voir la randonnée Rut du Chamois">
+          <div class="image-block"
+            style="background-image: url('sorties/Los_Azulejos/Los_Azulejos.jpg');">
+            <div class="text text-center">
+              <h2>Los Azulejos</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-12 col-md-4 gallery-item" data-category="other chant">
+        <!--sorties/Kalakuta_Mentality/Kalakuta_Mentality.html-->
+        <a href="https://www.instagram.com/kalakuta_mentality"
+          aria-label="Voir la randonnée Aquarelle automnale">
+          <div class="image-block"
+            style="background-image: url('sorties/Kalakuta_Mentality/Kalakuta_Mentality.jpg');">
+            <div class="text text-center">
+              <h2>Kalakuta Mentality</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-12 col-md-4 gallery-item" data-category="other instru">
+        <!--sorties/Concert_coeur/concert_coeur.html-->
+        <a href="https://www.lesconcertsducoeur.ch/fr/artistes/les-accords" aria-label="Voir la randonnée Brame du cerf">
+          <div class="image-block"
+            style="background-image: url('sorties/Concert_coeur/medium_Dantong_Aro_831d3e2527.jpg');">
+            <div class="text text-center">
+              <h2>Concert du coeur</h2>
+              <h5>Duo avec Dantong Wang</h5>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="col-12 col-md-4 gallery-item" data-category="other">
+        <!--sorties/reve_poche/reve_poche.html-->
+        <a href="https://www.revesdepoche.ch/chevalier-vert"
+          aria-label="Voir la randonnée L’automne sur les Hauts de Champéry">
+          <div class="image-block"
+            style="background-image: url('sorties/reve_poche/visage2.png');">
+            <div class="text text-center">
+              <h2>Comédies musicales - Rêve de poche</h2>
+              <h5>Le Chevalier Vert</h5>
+            </div>
+          </div>
+        </a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+</body>
+
+</html>

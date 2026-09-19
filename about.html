@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHY79CGXQ2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-CHY79CGXQ2');
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/layout.js"></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aro Ramamonjy</title>
+
+  <link rel="icon" type="image/png" href="/img/favicon_nobg.png" />
+
+  <link rel='shortcut icon' type='image/png' href='/img/favicon_nobg.png' />
+
+  <!-- Lien vers Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .section-main {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .header-about {
+      background-image: url("img/basse-full.png");
+      background-position: center;
+      height: 70vh;
+      background-size: cover;
+      position: relative;
+    }
+
+    .header-about::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+
+
+    .text-container p {
+      margin-bottom: 1.2rem;
+    }
+
+    .image-block {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .image-block::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.1);
+      /* plus contrasté */
+    }
+
+    .image-block .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    #FAQ a:hover {
+      color: #f3af87;
+      /* Change la couleur au survol */
+      text-decoration: none;
+      /* Assure que le soulignement reste désactivé */
+    }
+
+    .img-fluid {
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .img-fluid:hover {
+      transform: scale(1.05);
+    }
+
+
+
+    .image-block.center-content {
+      display: flex;
+      align-items: center;
+    }
+
+    .image-block .container {
+      max-width: 700px;
+    }
+
+
+
+
+
+    /* container */
+    .custom-accordion .accordion-item {
+      border: none;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* bouton fermé */
+    .custom-accordion .accordion-button {
+      background-color: #ffe4d4;
+      color: var(--color-primary);
+      font-weight: 500;
+      box-shadow: none;
+    }
+
+    /* bouton ouvert */
+    .custom-accordion .accordion-button:not(.collapsed) {
+      background-color: #f3af87;
+      color: white;
+    }
+
+    /* flèche */
+    .custom-accordion .accordion-button::after {
+      filter: invert(20%);
+    }
+
+    /* contenu */
+    .custom-accordion .accordion-body {
+      background-color: #fff7f2;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* hover */
+    .custom-accordion .accordion-button:hover {
+      background-color: var(--color-primary);
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header-simple">
+    <div id="header" data-navbar="navbar-default" data-logo="img/prenom.png">
+    </div>
+  </header>
+
+  <!-- Section Présentation -->
+  <section class="section-main">
+    <div class="container">
+      <div class="row">
+        <!-- TEXTE -->
+        <div class="col-md-6 text-container">
+          <p class="mb-5" style="font-size: 80%;">Lausanne & Alentours</p>
+          <h2 class="mb-5">Hello, moi c'est Aro !</h2>
+          <p>
+            Aro Ramamonjy est un musicien professionnel et enseignant installé dans la région de Lausanne. Multi-instrumentiste (basse, contrebasse, saxophone et chant) et diplômé de la Haute École de Musique de Lausanne (HEMU) en jazz et musiques actuelles, il est très actif sur la scène locale à travers divers projets de groupe (Aro & Co., Pyrotyri Quintet). Passionné par la transmission, il partage son expertise en proposant des cours de guitare et de basse pour tous les niveaux.
+          </p>
+        </div>
+        <!-- IMAGE -->
+        <div class="col-md-6 image-container">
+          <img src="img/DSC_0573.jpg" alt="Portrait de Tessy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Art -->
+  <section class="section-main py-3">
+    <!-- "img/main_basse.png" -->
+    <div class="image-block center-content"
+      style="background-image: url('img/guitare_classique.png'); height: 500px;">
+      <div class="container text-center text-md-start" style="color: white;">
+        <h2>Mon approche avec la musique</h2>
+        <p class="mt-5">
+          Mon approche de la musique repose sur une vision globale où la technique s'efface pour laisser place à l'émotion et à l'écoute. Multi-instrumentiste de cœur, je perçois chaque instrument — qu'il s'agisse de la basse, du saxophone ou de la voix — comme une couleur différente pour raconter une histoire. Pour moi, le jazz et les musiques actuelles sont avant tout des espaces de liberté, d’improvisation et de dialogue, une philosophie que je m'efforce de transmettre avec bienveillance à mes élèves en adaptant ma pédagogie au rythme et à la sensibilité de chacun.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Présentation -->
+  <section class="container-fluid section-main py-3">
+    <div class="container">
+      <div class="row">
+        <!-- TEXTE -->
+        <div class="col-md-8 text-container">
+          <h2 class="text-left mb-3">Ancien Ingénieur Acousticien</h2>
+          <p class="mb-3">
+            En parallèle, Aro Ramamonjy est un chercheur scientifique et docteur en sciences de l’ingénieur spécialisé en acoustique et traitement du signal. Expert en intelligence artificielle et en audio 3D, il a notamment mené des travaux de recherche de pointe sur la classification et la localisation des signaux acoustiques, en collaborant avec des institutions reconnues telles que le Cnam à Paris et l'IRCAM.
+          </p>
+        </div>
+        <!-- IMAGE -->
+        <div class="col-md-4 image-container">
+          <a href="https://www.instagram.com/p/DKPBWQmonOm/" target="_blank">
+          <img src="img/video-acoustique.png" class="img-fluid w-100" />
+        </a>
+        </div>
+      </div>
+      <!--<img src="img/montagne-contour.png" />-->
+    </div>
+  </section>
+
+  <!-- Section Instagram -->
+  <section class="section-main container-fluid py-5">
+    <div class="row g-2 align-items-center">
+
+      <!-- Bloc Instagram -->
+      <div class="col-12 col-lg-4 text-center  d-flex flex-column justify-content-center">
+        <!-- Lien vers le compte Instagram -->
+        <a href="https://www.instagram.com/aroramamonjy/" target="_blank">
+          <i class="fab fa-instagram mb-3" style="font-size: 2rem;"></i>
+          <p class="mb-2 fw-bold">SUIVEZ MES AVENTURES</p>
+          @aroramamonjy
+        </a>
+        <div class="gap-50" style="width:100%; height:50px;"></div>
+      </div>
+
+      <!-- Images des réels -->
+      <div class="col-6 col-lg-2">
+        <a href="https://www.instagram.com/reel/DDHYJe4I0NA/" target="_blank">
+          <img src="img-instagram/reel-1.png" class="img-fluid w-100" />
+        </a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <a href="https://www.instagram.com/reel/DAJr-tSu1XQ/" target="_blank">
+          <img src="img-instagram/reel-2.png" class="img-fluid w-100" />
+        </a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <a href="https://www.instagram.com/reel/C864YCwISI8/" target="_blank">
+          <img src="img-instagram/reel-3.png" class="img-fluid w-100" />
+        </a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <a href="https://www.instagram.com/reel/C7zHPAJIs8-/" target="_blank">
+          <img src="img-instagram/reel-4.png" class="img-fluid w-100" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+</body>
+
+</html>

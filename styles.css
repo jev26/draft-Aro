@@ -1,0 +1,342 @@
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+  --color-bg-main: #ffffff;
+  --color-bg-secondary: #ecc2a9;
+
+  --color-primary: #01014d;
+  --color-accent: #01014d;
+  --color-white: #ffffff;
+
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  --radius: 8px;
+  --transition: 0.3s ease;
+  --spacing: 20px;
+}
+
+/* =========================
+   BASE
+========================= */
+
+body {
+  background-color: var(--color-bg-main);
+  color: var(--color-primary);
+}
+
+/*.section-main {
+  background-color: var(--color-bg-main);
+  color: var(--color-primary);
+}
+
+.section-secondary {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-primary);
+}*/
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+/*Base*/
+header {
+  background-color: var(--color-bg-main);
+  color: var(--color-primary);
+}
+
+.header-simple {
+  background-color: var(--color-bg-main);
+  color: var(--color-primary);
+}
+
+/*Header img*/
+.header-img {
+  position: relative;
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  /* FIX */
+  justify-content: center;
+}
+
+.header-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.header-home {
+  /*background-image: url("img/DSC00546.jpg");*/
+  background-image: url("img/test-accueil-2.png");
+  background-position: left;
+  height: 70vh;
+}
+
+@media (max-width: 768px) {
+
+  .header-home {
+    height: 50vh;
+  }
+}
+
+header .overlay-text {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--color-bg-main);
+}
+
+/*Navbar*/
+
+.navbar {
+  /*position: absolute; /* Fixation en haut */
+  top: 0;
+  /* Place tout en haut */
+  left: 0;
+  right: 0;
+  z-index: 10;
+  /* Priorité par rapport à l'image de fond */
+  padding: 10px var(--spacing);
+  /* Marges internes */
+}
+
+.navbar-img {
+  position: absolute;
+  /* Fixation en haut */
+}
+
+.navbar-brand img {
+  width: 130px;
+  height: auto;
+}
+
+.navbar-default .nav-link {
+  color: var(--color-primary);
+  /* Couleur par défaut des liens */
+  text-decoration: none;
+  /* Supprime le soulignement */
+  transition: var(--transition);
+  /* Ajoute une transition pour un effet fluide */
+}
+
+.navbar-default .nav-link:hover {
+  color: var(--color-accent);
+  /* Couleur des liens au survol */
+}
+
+.navbar-img .nav-link {
+  color: var(--color-bg-main);
+}
+
+.navbar-img .nav-link:hover {
+  color: var(--color-accent);
+}
+
+.navbar-toggler {
+  border: none !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(1,1,77,1)' stroke-width='2' d='M4 7h22M4 15h22'/%3E%3C/svg%3E") !important;
+  color: var(--color-primary);
+}
+
+.dropdown-menu {
+  right: 0;
+  /* Aligne le menu déroulant à droite */
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+  text-decoration: none;
+  /* Supprime le soulignement par défaut */
+  color: inherit;
+  /* Prend la couleur du texte autour */
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--color-accent);
+  /* Change la couleur lors du survol (exemple : couleur #b67271) */
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  background-color: var(--color-bg-main);
+  color: var(--color-primary);
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
+
+footer .social-icons a {
+  margin-left: 15px;
+}
+
+/* =========================
+   IMAGE-CONTAINER
+========================= */
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  /* Aligne les paragraphes en colonne */
+  justify-content: center;
+  /* Centrage vertical des paragraphes */
+  padding: 20px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  /* Centrer horizontalement */
+  align-items: center;
+  /* Centrer verticalement */
+}
+
+.image-container img {
+  width: 75%;
+  /* Adapte la taille de l'image à la colonne */
+  height: auto;
+  border-radius: 10px;
+  /* Optionnel : arrondi des coins de l'image */
+}
+
+/* =========================
+   IMAGE-BLOCK
+========================= */
+
+/*Image avec texte superposé*/
+.image-block {
+  position: relative;
+  /*width: 100%;*/
+  height: 400px;
+  /* Ajustez la hauteur selon vos besoins */
+  background-color: var(--color-bg-main);
+  /*background: url('img/photo_1.png') no-repeat center center;*/
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  overflow: hidden;
+
+  transition: transform var(--transition);
+}
+
+.image-block::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  /* overlay */
+}
+
+/* Pour que le contenu soit au-dessus de l’overlay */
+.image-block>* {
+  position: relative;
+  z-index: 2;
+}
+
+.image-block:hover {
+  transform: scale(1.02);
+}
+
+/* Texte centré sur l'image */
+.image-block .text {
+  position: absolute;
+  /*top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);*/
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--color-white);
+  z-index: 1;
+}
+
+.hover-scale {
+  transition: transform var(--transition);
+}
+
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn-red {
+  border-radius: var(--radius);
+  padding: 8px 18px;
+  font-weight: 500;
+
+  color: var(--color-primary);
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+
+  text-decoration: none !important;
+}
+
+.btn-red:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-white {
+  border-radius: var(--radius);
+  padding: 8px 18px;
+  font-weight: 500;
+
+  color: var(--color-bg-main);
+  border: 1px solid var(--color-bg-main);
+}
+
+.btn-white:hover {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.btn-red,
+.btn-white {
+  transition: var(--transition);
+}
+
+button:focus,
+a:focus {
+  outline: 2px solid var(--color-accent);
+}
+
+button {
+  cursor: pointer;
+}
+
