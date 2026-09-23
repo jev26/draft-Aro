@@ -340,3 +340,13 @@ button {
   cursor: pointer;
 }
 
+.datewd {
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.datewd .weekday {
+    display: inline-block;
+    width: 2.8em;
+}
+
