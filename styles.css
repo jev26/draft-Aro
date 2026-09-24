@@ -350,3 +350,43 @@ button {
     width: 2.8em;
 }
 
+
+
+
+
+
+
+
+.season-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.season-tab {
+    padding: 8px 18px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    transition: 0.2s ease;
+}
+
+.season-tab:hover {
+    background: #f2f2f2;
+}
+
+.season-tab.active {
+    background: #222;
+    color: white;
+    border-color: #222;
+}
+
+.season-content {
+    display: none;
+}
+
+.season-content.active {
+    display: block;
+}

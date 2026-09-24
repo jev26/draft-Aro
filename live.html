@@ -1,0 +1,4056 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHY79CGXQ2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CHY79CGXQ2');
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/layout.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+        /* =========================
+           EVENTS TABLE
+        ========================= */
+
+        .events-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+        }
+
+        .events-table thead {
+            border-bottom: 2px solid #222;
+        }
+
+        .events-table th {
+            text-align: left;
+            font-weight: 600;
+            padding: 15px 12px;
+        }
+
+        .events-table td {
+            padding: 18px 12px;
+            border-bottom: 1px solid #e5e5e5;
+            vertical-align: top;
+        }
+
+        .events-table tbody tr {
+            transition: background 0.2s ease;
+        }
+
+        .events-table tbody tr:hover {
+            background: #f8f8f8;
+        }
+
+        .date {
+            width: 28%;
+            white-space: nowrap;
+        }
+
+        .event {
+            width: 42%;
+        }
+
+        .location {
+            width: 30%;
+        }
+
+        .events-table a {
+            color: #222;
+            text-decoration: none;
+        }
+
+        .events-table a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            /*
+             * On transforme le tableau en blocs
+             * sur mobile pour faciliter la lecture.
+             */
+
+            .events-table,
+            .events-table thead,
+            .events-table tbody,
+            .events-table th,
+            .events-table td,
+            .events-table tr {
+                display: block;
+                width: 100%;
+            }
+
+            .events-table thead {
+                display: none;
+            }
+
+            .events-table tr {
+                padding: 20px 0;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .events-table td {
+                padding: 4px 0;
+                border: none;
+            }
+
+            .events-table td::before {
+                display: block;
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: #888;
+                margin-bottom: 2px;
+            }
+
+            .events-table .date::before {
+                content: "Date";
+            }
+
+            .events-table .event::before {
+                content: "Event";
+            }
+
+            .events-table .location::before {
+                content: "Location";
+            }
+
+            .date {
+                white-space: normal;
+            }
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .pagination button {
+            border: none;
+            background: transparent;
+            color: inherit;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .pagination button:hover {
+            text-decoration: underline;
+        }
+
+        .pagination button.active {
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .pagination button:disabled {
+            opacity: 0.3;
+            cursor: default;
+            text-decoration: none;
+        }
+    </style>
+    <title>Aro Ramamonjy</title>
+
+    <link rel="icon" type="image/png" href="/img/favicon_nobg.png" />
+    <!-- Lien vers Bootstrap CSS -->
+</head>
+
+
+<script>
+    function showSeason(year, button) {
+
+        // Cache toutes les saisons
+        document.querySelectorAll(".season-content").forEach(function (season) {
+            season.classList.remove("active");
+        });
+
+        // Désactive tous les onglets
+        document.querySelectorAll(".season-tab").forEach(function (tab) {
+            tab.classList.remove("active");
+        });
+
+        // Affiche l'année sélectionnée
+        document.getElementById("season-" + year).classList.add("active");
+
+        // Colore l'onglet sélectionné
+        button.classList.add("active");
+    }
+</script>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div id="header" data-navbar="navbar-default" data-logo="img/prenom.png">
+        </div>
+    </header>
+
+    <!-- ICI COPIER LE genererConcertsHTML issu de Gigs.sheets --> 
+    <section class="section-main py-5">
+        <div class="container">
+
+            <h1>Saisons</h1>
+
+            <div class="season-tabs">
+                <button class="season-tab active" onclick="showSeason(2026, this)">2026</button>
+                <button class="season-tab" onclick="showSeason(2025, this)">2025</button>
+                <button class="season-tab" onclick="showSeason(2024, this)">2024</button>
+            </div>
+
+            <div class="season-content active" id="season-2026">
+
+                <table class="events-table">
+
+                    <thead>
+                        <tr>
+                            <th class="date">Date</th>
+                            <th class="event">Projet</th>
+                            <th class="location">Lieu</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- JANVIER -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Janvier 2026</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>01/01
+                            </td>
+
+                            <td class="event">
+                                Mario and Friends
+                            </td>
+
+                            <td class="location">
+                                L'aparté, Evian-les-Bains (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>01/01, 20h00
+                            </td>
+
+                            <td class="event">
+                                Nina Zette
+                            </td>
+
+                            <td class="location">
+                                Bains des Paquis, Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>10/01
+                            </td>
+
+                            <td class="event">
+                                Duo w/ Charles Della Maestra
+                            </td>
+
+                            <td class="location">
+                                Villars-sur-Ollon (VD)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>16/01, 19h30
+                            </td>
+
+                            <td class="event">
+                                Envol Duo, + illustratrice Sophie Boyer
+                            </td>
+
+                            <td class="location">
+                                Médiathèque Le Châtelard, Ferney-Voltaire (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>17/01, 09h30
+                            </td>
+
+                            <td class="event">
+                                Aro Solo
+                            </td>
+
+                            <td class="location">
+                                Boullard Musique, Morges (VD)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>24/01, 17h00
+                            </td>
+
+                            <td class="event">
+                                Fanfare de Mont-sur-Rolle
+                            </td>
+
+                            <td class="location">
+                                Essertines-sur-Rolle (VD)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>25/01, 20h15
+                            </td>
+
+                            <td class="event">
+                                Fanfare de Mont-sur-Rolle
+                            </td>
+
+                            <td class="location">
+                                Essertines-sur-Rolle (VD)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Lun.</span>26/01
+                            </td>
+
+                            <td class="event">
+                                Mathilde Elise
+                            </td>
+
+                            <td class="location">
+                                Atrium de l'EJMA, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>29/01, 20h30
+                            </td>
+
+                            <td class="event">
+                                Ester Maiorani
+                            </td>
+
+                            <td class="location">
+                                La Jonquille, Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>30/01
+                            </td>
+
+                            <td class="event">
+                                Mathilde Elise
+                            </td>
+
+                            <td class="location">
+                                EPFL Live session, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>31/01, 20h30
+                            </td>
+
+                            <td class="event">
+                                Comédie Musicale Le Chevalier Vert
+                            </td>
+
+                            <td class="location">
+                                La Marive, Yverdon-les-Bains (VD)
+                            </td>
+                        </tr>
+
+                        <!-- FÉVRIER -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Février 2026</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>01/02, 17h00
+                            </td>
+
+                            <td class="event">
+                                Comédie Musicale Le Chevalier Vert
+                            </td>
+
+                            <td class="location">
+                                La Marive, Yverdon-les-Bains (VD)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Lun.</span>02/02
+                            </td>
+
+                            <td class="event">
+                                Pyrotyri
+                            </td>
+
+                            <td class="location">
+                                Enregistrement à l'EMA, Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>05/02
+                            </td>
+
+                            <td class="event">
+                                Alex &amp; Aro
+                            </td>
+
+                            <td class="location">
+                                Funky Claude's Bar, Montreux
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>06/02
+                            </td>
+
+                            <td class="event">
+                                Alex &amp; Aro
+                            </td>
+
+                            <td class="location">
+                                Funky Claude's Bar, Montreux
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>12/02
+                            </td>
+
+                            <td class="event">
+                                Hommage à Anouar Brahem feat. Matthieu Michel
+                            </td>
+
+                            <td class="location">
+                                Chorus Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>25/02
+                            </td>
+
+                            <td class="event">
+                                Lily Sollors
+                            </td>
+
+                            <td class="location">
+                                Résidence
+                            </td>
+                        </tr>
+
+                        <!-- MARS -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Mars 2026</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>05/03
+                            </td>
+
+                            <td class="event">
+                                HEMU Jazz feat. René Moselle
+                            </td>
+
+                            <td class="location">
+                                Chorus Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>06/03
+                            </td>
+
+                            <td class="event">
+                                Les Accords Duo
+                            </td>
+
+                            <td class="location">
+                                Concerts du Coeur
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Lun.</span>09/03, 20h00
+                            </td>
+
+                            <td class="event">
+                                Noem Othenin-Girard
+                            </td>
+
+                            <td class="location">
+                                Atrium de l'EJMA, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>14/03, 17h00
+                            </td>
+
+                            <td class="event">
+                                Les Saisons, duo avec Dantong Wang
+                            </td>
+
+                            <td class="location">
+                                Eglise St François, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>19/03, 20h15
+                            </td>
+
+                            <td class="event">
+                                Nina Zette
+                            </td>
+
+                            <td class="location">
+                                Le Chante Coq, Thonon-les-Bains (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>20/03
+                            </td>
+
+                            <td class="event">
+                                Pyrotyri
+                            </td>
+
+                            <td class="location">
+                                Résidence Propulsion #4
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>26/03, 20h00
+                            </td>
+
+                            <td class="event">
+                                Chapvert
+                            </td>
+
+                            <td class="location">
+                                Winterthur (ZH)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>27/03, 21h00
+                            </td>
+
+                            <td class="event">
+                                Kalakuta Mentality
+                            </td>
+
+                            <td class="location">
+                                Jumeaux Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>28/03, 20h15
+                            </td>
+
+                            <td class="event">
+                                Coeur de François Monteverdi
+                            </td>
+
+                            <td class="location">
+                                Rivaz (VD)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>29/03
+                            </td>
+
+                            <td class="event">
+                                Théâtrale de Zofingue
+                            </td>
+
+                            <td class="location">
+                                Blanche Maison, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Lun.</span>30/03
+                            </td>
+
+                            <td class="event">
+                                Marathon du Piano
+                            </td>
+
+                            <td class="location">
+                                Evian-les-Bains (France)
+                            </td>
+                        </tr>
+
+                        <!-- AVRIL -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Avril 2026</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>02/04
+                            </td>
+
+                            <td class="event">
+                                Marathon du Piano
+                            </td>
+
+                            <td class="location">
+                                Evian-les-Bains (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>03/04
+                            </td>
+
+                            <td class="event">
+                                Nina Zette
+                            </td>
+
+                            <td class="location">
+                                L'Albertine, Publier (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>11/04
+                            </td>
+
+                            <td class="event">
+                                Théâtrale de Zofingue
+                            </td>
+
+                            <td class="location">
+                                Salle centrale de la Madeleine, Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>16/04
+                            </td>
+
+                            <td class="event">
+                                Pyrotyri Quintet
+                            </td>
+
+                            <td class="location">
+                                Cully Jazz Festival, Cully (VD)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>18/04
+                            </td>
+
+                            <td class="event">
+                                Théâtrale de Zofingue
+                            </td>
+
+                            <td class="location">
+                                Salle Paderewski, Casino de Montbenon, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>25/04, 17h30
+                            </td>
+
+                            <td class="event">
+                                Moondancer
+                            </td>
+
+                            <td class="location">
+                                Lykke Bar, Morges
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>30/04
+                            </td>
+
+                            <td class="event">
+                                Pyrotyri 6tet w/ Christian Quartenoud
+                            </td>
+
+                            <td class="location">
+                                La Spirale, Fribourg
+                            </td>
+                        </tr>
+
+                        <!-- MAI -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Mai 2026</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>03/05, 17h00
+                            </td>
+
+                            <td class="event">
+                                Comédie Musicale Le Chevalier Vert
+                            </td>
+
+                            <td class="location">
+                                Salle de l’Aiglon, Aigle (VD)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>08/05
+                            </td>
+
+                            <td class="event">
+                                Totaiota
+                            </td>
+
+                            <td class="location">
+                                BCV Concert Hall, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>08/05
+                            </td>
+
+                            <td class="event">
+                                Pyrotyri
+                            </td>
+
+                            <td class="location">
+                                BCV Concert Hall, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>10/05
+                            </td>
+
+                            <td class="event">
+                                Les Accords Duo
+                            </td>
+
+                            <td class="location">
+                                Les Concerts du Coeur
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>13/05, 15h00
+                            </td>
+
+                            <td class="event">
+                                Bab &amp; Lo - Chansons pour enfants
+                            </td>
+
+                            <td class="location">
+                                Maison de quartier sous-gare, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>15/05
+                            </td>
+
+                            <td class="event">
+                                Dimitri Kuznetsov 5tet
+                            </td>
+
+                            <td class="location">
+                                Evian-les-Bains (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>16/05
+                            </td>
+
+                            <td class="event">
+                                Birds
+                            </td>
+
+                            <td class="location">
+                                Hôtel de la Paix, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>21/05, 21h00
+                            </td>
+
+                            <td class="event">
+                                Atelier Brazil w/ HEMU
+                            </td>
+
+                            <td class="location">
+                                Chorus Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>22/05, 17h30
+                            </td>
+
+                            <td class="event">
+                                Moondancer
+                            </td>
+
+                            <td class="location">
+                                Lykke Bar, Morges
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mar.</span>26/05
+                            </td>
+
+                            <td class="event">
+                                Didier Yon 6tet
+                            </td>
+
+                            <td class="location">
+                                BCV Concert Hall, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mar.</span>26/05
+                            </td>
+
+                            <td class="event">
+                                Fabrizio Fresu
+                            </td>
+
+                            <td class="location">
+                                BCV Concert Hall, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>29/05, 21h00
+                            </td>
+
+                            <td class="event">
+                                Dimitri Kuznetsov 5tet
+                            </td>
+
+                            <td class="location">
+                                BCV Concert Hall, Lausanne
+                            </td>
+                        </tr>
+
+                        <!-- JUIN -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Juin 2026</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mar.</span>02/06, 19h30
+                            </td>
+
+                            <td class="event">
+                                Les Saisons Orchestra
+                            </td>
+
+                            <td class="location">
+                                Jumeaux Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>03/06
+                            </td>
+
+                            <td class="event">
+                                Maxance Leda
+                            </td>
+
+                            <td class="location">
+                                Hôtel d'Angleterre, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>06/06, 20h00
+                            </td>
+
+                            <td class="event">
+                                Nina Zette
+                            </td>
+
+                            <td class="location">
+                                L'Etabli, Massongy (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>06/06, 20h00
+                            </td>
+
+                            <td class="event">
+                                Allan Canard duo
+                            </td>
+
+                            <td class="location">
+                                Thonon-les-Bains (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>07/06, 17h00
+                            </td>
+
+                            <td class="event">
+                                Comédie Musicale Le Chevalier Vert
+                            </td>
+
+                            <td class="location">
+                                Bicubic, Romont (FR)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>10/06
+                            </td>
+
+                            <td class="event">
+                                Enrico Eberhard
+                            </td>
+
+                            <td class="location">
+                                La Réserve Hôtel, Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>11/06
+                            </td>
+
+                            <td class="event">
+                                Sophie Racine
+                            </td>
+
+                            <td class="location">
+                                Récital HEMU
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>12/06, 18h00
+                            </td>
+
+                            <td class="event">
+                                Pablo Demena
+                            </td>
+
+                            <td class="location">
+                                Chezery-Forens (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>13/06, 22h00
+                            </td>
+
+                            <td class="event">
+                                Pyrotyri
+                            </td>
+
+                            <td class="location">
+                                Propulsion Jazz Festival, Luxembourg (Luxembourg)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mar.</span>16/06
+                            </td>
+
+                            <td class="event">
+                                Totaiota
+                            </td>
+
+                            <td class="location">
+                                Récital HEMU
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>18/06, 18h30
+                            </td>
+
+                            <td class="event">
+                                Pablo Demena
+                            </td>
+
+                            <td class="location">
+                                Saint-Genis-Pouilly (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>20/06
+                            </td>
+
+                            <td class="event">
+                                Nyks &amp; Bianca Hambartsumian
+                            </td>
+
+                            <td class="location">
+                                Private Event, Neuchatel
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>20/06
+                            </td>
+
+                            <td class="event">
+                                Nina Zette
+                            </td>
+
+                            <td class="location">
+                                Bar Le Chante Coq, Thonon-les-Bains (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>20/06, 19h45
+                            </td>
+
+                            <td class="event">
+                                Lavis Tahorda
+                            </td>
+
+                            <td class="location">
+                                Bar Le Chante Coq, Thonon-les-Bains (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>21/06, 20h00
+                            </td>
+
+                            <td class="event">
+                                Pablo Demena
+                            </td>
+
+                            <td class="location">
+                                Ferney-Voltaire (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>26/06, 18h00
+                            </td>
+
+                            <td class="event">
+                                Kalakuta Mentality
+                            </td>
+
+                            <td class="location">
+                                Aigle (VD)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>27/06
+                            </td>
+
+                            <td class="event">
+                                May Birds
+                            </td>
+
+                            <td class="location">
+                                Private Event, Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>27/06
+                            </td>
+
+                            <td class="event">
+                                Ivana Muckova
+                            </td>
+
+                            <td class="location">
+                                Private Event, Neuchatel
+                            </td>
+                        </tr>
+
+                        <!-- JUILLET -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Juillet 2026</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>04/07, 14h00
+                            </td>
+
+                            <td class="event">
+                                Ryslo
+                            </td>
+
+                            <td class="location">
+                                Plage de Nyon (VD)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>11/07
+                            </td>
+
+                            <td class="event">
+                                Sunkfool
+                            </td>
+
+                            <td class="location">
+                                Thonon-les-Bains (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>29/07
+                            </td>
+
+                            <td class="event">
+                                Cheers Dudes
+                            </td>
+
+                            <td class="location">
+                                Anthy-sur-Léman (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>30/07
+                            </td>
+
+                            <td class="event">
+                                Cheers Dudes
+                            </td>
+
+                            <td class="location">
+                                Evian-les-Bains (France)
+                            </td>
+                        </tr>
+
+                        <!-- AOÛT -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Août 2026</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Lun.</span>03/08
+                            </td>
+
+                            <td class="event">
+                                Ryslo
+                            </td>
+
+                            <td class="location">
+                                Enregistrement Studio
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>05/08
+                            </td>
+
+                            <td class="event">
+                                Nina Zette
+                            </td>
+
+                            <td class="location">
+                                Roule ma Poule, Publier (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>07/08
+                            </td>
+
+                            <td class="event">
+                                Sunkfool
+                            </td>
+
+                            <td class="location">
+                                Thonon-les-Bains (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>09/08, 21h15
+                            </td>
+
+                            <td class="event">
+                                Kalakuta Mentality
+                            </td>
+
+                            <td class="location">
+                                Hors Tribu Festival, Môtiers (NE)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mar.</span>18/08, 18h45
+                            </td>
+
+                            <td class="event">
+                                Didier Yon 6tet
+                            </td>
+
+                            <td class="location">
+                                Morgex (Italie)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>22/08
+                            </td>
+
+                            <td class="event">
+                                Aro Solo
+                            </td>
+
+                            <td class="location">
+                                Bex (VD)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>29/08, 18h30
+                            </td>
+
+                            <td class="event">
+                                Alex &amp; Aro
+                            </td>
+
+                            <td class="location">
+                                Fête de Quartier, Lausanne
+                            </td>
+                        </tr>
+
+                        <!-- SEPTEMBRE -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Septembre 2026</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>03/09
+                            </td>
+
+                            <td class="event">
+                                Duo w/ Sebastian Castellanos
+                            </td>
+
+                            <td class="location">
+                                Private Event, Geneve
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>04/09
+                            </td>
+
+                            <td class="event">
+                                Totaiota
+                            </td>
+
+                            <td class="location">
+                                Enregistrement Studio
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>05/09, 13h30
+                            </td>
+
+                            <td class="event">
+                                Alex &amp; Aro
+                            </td>
+
+                            <td class="location">
+                                Fête de Quartier, Neuchatel
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Lun.</span>07/09
+                            </td>
+
+                            <td class="event">
+                                Mathilde Elise
+                            </td>
+
+                            <td class="location">
+                                Artefax Studio, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>09/09
+                            </td>
+
+                            <td class="event">
+                                Les Accords Duo
+                            </td>
+
+                            <td class="location">
+                                Chateau de la Rive, Lutry
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>10/09, 19h30
+                            </td>
+
+                            <td class="event">
+                                Moondancer
+                            </td>
+
+                            <td class="location">
+                                Lykke Bar, Morges
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>12/09, 20h00
+                            </td>
+
+                            <td class="event">
+                                Comédie Musicale Le Chevalier Vert
+                            </td>
+
+                            <td class="location">
+                                Château de Grandson (VD)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>13/09, 17h00
+                            </td>
+
+                            <td class="event">
+                                Comédie Musicale Le Chevalier Vert
+                            </td>
+
+                            <td class="location">
+                                Château de Grandson (VD)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>25/09
+                            </td>
+
+                            <td class="event">
+                                Los Azulejos
+                            </td>
+
+                            <td class="location">
+                                Enregistrement Studio
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>26/09, 15h30
+                            </td>
+
+                            <td class="event">
+                                Anima
+                            </td>
+
+                            <td class="location">
+                                Rolle Jazz Festival
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>27/09
+                            </td>
+
+                            <td class="event">
+                                Alma Musique
+                            </td>
+
+                            <td class="location">
+                                RedLine Radio
+                            </td>
+                        </tr>
+
+                        <!-- OCTOBRE -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Octobre 2026</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>02/10
+                            </td>
+
+                            <td class="event">
+                                Comédie Musicale Le Chevalier Vert
+                            </td>
+
+                            <td class="location">
+                                Grande salle, Epalinges
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>03/10
+                            </td>
+
+                            <td class="event">
+                                Kalakuta Mentality
+                            </td>
+
+                            <td class="location">
+                                Wakat Festival, Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>04/10, 17h00
+                            </td>
+
+                            <td class="event">
+                                Comédie Musicale Le Chevalier Vert
+                            </td>
+
+                            <td class="location">
+                                Théâtre de Marens, Nyon
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>22/10
+                            </td>
+
+                            <td class="event">
+                                Totaiota
+                            </td>
+
+                            <td class="location">
+                                Perbacco, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>30/10
+                            </td>
+
+                            <td class="event">
+                                Moondancer
+                            </td>
+
+                            <td class="location">
+                                Lykke Bar, Morges
+                            </td>
+                        </tr>
+
+                        <!-- NOVEMBRE -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Novembre 2026</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>12/11
+                            </td>
+
+                            <td class="event">
+                                Pyrotyri
+                            </td>
+
+                            <td class="location">
+                                Le Petit Tigre, Strasbourg (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>18/11, 20h30
+                            </td>
+
+                            <td class="event">
+                                Mathilde Elise
+                            </td>
+
+                            <td class="location">
+                                Jumeaux Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>19/11, 19h30
+                            </td>
+
+                            <td class="event">
+                                Moondancer
+                            </td>
+
+                            <td class="location">
+                                Lykke Bar, Morges
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>20/11
+                            </td>
+
+                            <td class="event">
+                                Pachakutiy
+                            </td>
+
+                            <td class="location">
+                                La Bille, La Sarraz
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>26/11, 21h15
+                            </td>
+
+                            <td class="event">
+                                Improbable w/HEMU
+                            </td>
+
+                            <td class="location">
+                                BCV Concert Hall, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>28/11
+                            </td>
+
+                            <td class="event">
+                                Ester Maiorani
+                            </td>
+
+                            <td class="location">
+                                HESSEL, Orbe
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>29/11, 18h00
+                            </td>
+
+                            <td class="event">
+                                Comédie Musicale Le Chevalier Vert
+                            </td>
+
+                            <td class="location">
+                                Théâtre de l'Abeille, Riddes (VS)
+                            </td>
+                        </tr>
+
+                        <!-- DÉCEMBRE -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Décembre 2026</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>11/12, 22h00
+                            </td>
+
+                            <td class="event">
+                                Large Ensemble Afro Cubain - El Gran Combo Caliente
+                            </td>
+
+                            <td class="location">
+                                Jumeaux Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>17/12
+                            </td>
+
+                            <td class="event">
+                                Moondancer
+                            </td>
+
+                            <td class="location">
+                                Lykke Bar, Morges
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="season-content" id="season-2025">
+
+                <table class="events-table">
+
+                    <thead>
+                        <tr>
+                            <th class="date">Date</th>
+                            <th class="event">Projet</th>
+                            <th class="location">Lieu</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- JANVIER -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Janvier 2025</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>09/01, 20h30
+                            </td>
+
+                            <td class="event">
+                                HEMU Jazz
+                            </td>
+
+                            <td class="location">
+                                Chorus Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>11/01, 19h00
+                            </td>
+
+                            <td class="event">
+                                Sunshine Rivers
+                            </td>
+
+                            <td class="location">
+                                Private Event
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>16/01, 21h30
+                            </td>
+
+                            <td class="event">
+                                Foreign Brother' Mood feat. Nicolas Viccaro
+                            </td>
+
+                            <td class="location">
+                                Chorus Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>17/01, 22h00
+                            </td>
+
+                            <td class="event">
+                                Kalakuta Mentality
+                            </td>
+
+                            <td class="location">
+                                Black Movie Festival, Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mar.</span>28/01
+                            </td>
+
+                            <td class="event">
+                                Liam Bonga
+                            </td>
+
+                            <td class="location">
+                                Zürich Campus
+                            </td>
+                        </tr>
+
+                        <!-- FÉVRIER -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Février 2025</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>13/02
+                            </td>
+
+                            <td class="event">
+                                Coeur des femmes de l'EJMA
+                            </td>
+
+                            <td class="location">
+                                Enregistrement, Lutry
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>14/02
+                            </td>
+
+                            <td class="event">
+                                Jam Spiral
+                            </td>
+
+                            <td class="location">
+                                La Spirale, Fribourg
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>15/02
+                            </td>
+
+                            <td class="event">
+                                Mayte
+                            </td>
+
+                            <td class="location">
+                                Private Event, Lyon
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Lun.</span>24/02
+                            </td>
+
+                            <td class="event">
+                                Totaiota
+                            </td>
+
+                            <td class="location">
+                                Atrium de l'EJMA, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mar.</span>25/02
+                            </td>
+
+                            <td class="event">
+                                Remo Stornetta
+                            </td>
+
+                            <td class="location">
+                                Atrium de l'EJMA, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>27/02
+                            </td>
+
+                            <td class="event">
+                                Lily Sollors
+                            </td>
+
+                            <td class="location">
+                                Chorus Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>27/02
+                            </td>
+
+                            <td class="event">
+                                Robin Luthi and Friends
+                            </td>
+
+                            <td class="location">
+                                Chorus Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <!-- MARS -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Mars 2025</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Lun.</span>03/03
+                            </td>
+
+                            <td class="event">
+                                Jaystorm
+                            </td>
+
+                            <td class="location">
+                                Atrium de l'EJMA, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>05/03
+                            </td>
+
+                            <td class="event">
+                                Coeur des femmes de l'EJMA
+                            </td>
+
+                            <td class="location">
+                                Rencontres 7e Art, Esplanade du Flon, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>09/03
+                            </td>
+
+                            <td class="event">
+                                Kind of Quintet
+                            </td>
+
+                            <td class="location">
+                                Mademoiselle Simone, Lyon, France
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>15/03
+                            </td>
+
+                            <td class="event">
+                                Totaiota
+                            </td>
+
+                            <td class="location">
+                                Le Pointu, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>28/03
+                            </td>
+
+                            <td class="event">
+                                CheckOneTwo
+                            </td>
+
+                            <td class="location">
+                                Jam Session
+                            </td>
+                        </tr>
+
+                        <!-- AVRIL -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Avril 2025</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>05/04
+                            </td>
+
+                            <td class="event">
+                                Kind of Quintet
+                            </td>
+
+                            <td class="location">
+                                Lyon, France
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>09/04
+                            </td>
+
+                            <td class="event">
+                                Métamorphose Duo
+                            </td>
+
+                            <td class="location">
+                                Private Event, Lausanne
+                            </td>
+                        </tr>
+
+                        <!-- MAI -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Mai 2025</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>01/05
+                            </td>
+
+                            <td class="event">
+                                Ignacio Fernandez Pintos
+                            </td>
+
+                            <td class="location">
+                                Chorus Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>03/05
+                            </td>
+
+                            <td class="event">
+                                Sol Rumberos
+                            </td>
+
+                            <td class="location">
+                                Le Pointu, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>07/05
+                            </td>
+
+                            <td class="event">
+                                Mara
+                            </td>
+
+                            <td class="location">
+                                Festival Jazz au Plateau, Larnas
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>08/05
+                            </td>
+
+                            <td class="event">
+                                Ryslo
+                            </td>
+
+                            <td class="location">
+                                Chorus Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>15/05
+                            </td>
+
+                            <td class="event">
+                                Léonie Kornmann
+                            </td>
+
+                            <td class="location">
+                                Bar Les Recyclables, Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>16/05
+                            </td>
+
+                            <td class="event">
+                                Kind of Quintet
+                            </td>
+
+                            <td class="location">
+                                Chez Fabienne, Oullins, France
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>17/05
+                            </td>
+
+                            <td class="event">
+                                Examen
+                            </td>
+
+                            <td class="location">
+                                HEMU, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>21/05
+                            </td>
+
+                            <td class="event">
+                                Anima
+                            </td>
+
+                            <td class="location">
+                                Bleu Lézard, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>22/05
+                            </td>
+
+                            <td class="event">
+                                Mayte
+                            </td>
+
+                            <td class="location">
+                                Urgence Disk Records, Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>24/05
+                            </td>
+
+                            <td class="event">
+                                Los azulejos
+                            </td>
+
+                            <td class="location">
+                                Théâtre du Concert, Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>24/05
+                            </td>
+
+                            <td class="event">
+                                Alba Marin
+                            </td>
+
+                            <td class="location">
+                                Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>31/05
+                            </td>
+
+                            <td class="event">
+                                Totaiota
+                            </td>
+
+                            <td class="location">
+                                Le Pointu, Lausanne
+                            </td>
+                        </tr>
+
+                        <!-- JUIN -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Juin 2025</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Lun.</span>02/06
+                            </td>
+
+                            <td class="event">
+                                Anima
+                            </td>
+
+                            <td class="location">
+                                Jumeaux Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>07/06
+                            </td>
+
+                            <td class="event">
+                                Projet 666
+                            </td>
+
+                            <td class="location">
+                                L'Amalgame, Yverdon-les-Bains
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>07/06
+                            </td>
+
+                            <td class="event">
+                                Les Accords Duo
+                            </td>
+
+                            <td class="location">
+                                Ville de Lausanne, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>12/06
+                            </td>
+
+                            <td class="event">
+                                Les Accords Trio
+                            </td>
+
+                            <td class="location">
+                                HETSL, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>15/06
+                            </td>
+
+                            <td class="event">
+                                Ryslo
+                            </td>
+
+                            <td class="location">
+                                Fête de Quartier, Bussigny
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>20/06
+                            </td>
+
+                            <td class="event">
+                                Maxance Leda
+                            </td>
+
+                            <td class="location">
+                                Court 14, Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>21/06
+                            </td>
+
+                            <td class="event">
+                                Envol
+                            </td>
+
+                            <td class="location">
+                                Plage de Divonne-les-Bains
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>21/06
+                            </td>
+
+                            <td class="event">
+                                Robin Luthi and Friends
+                            </td>
+
+                            <td class="location">
+                                Vers-chez-les-Blanc
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>21/06
+                            </td>
+
+                            <td class="event">
+                                Lily Sollors
+                            </td>
+
+                            <td class="location">
+                                Vers-chez-les-Blanc
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>22/06
+                            </td>
+
+                            <td class="event">
+                                Los Azulejos
+                            </td>
+
+                            <td class="location">
+                                Alhambra, Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>26/06
+                            </td>
+
+                            <td class="event">
+                                Pachakutiy
+                            </td>
+
+                            <td class="location">
+                                Fnac, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>29/06
+                            </td>
+
+                            <td class="event">
+                                Sunshine Rivers
+                            </td>
+
+                            <td class="location">
+                                Sentier Gourmand, Lavaux
+                            </td>
+                        </tr>
+
+                        <!-- JUILLET -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Juillet 2025</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>04/07
+                            </td>
+
+                            <td class="event">
+                                Pyrotyri
+                            </td>
+
+                            <td class="location">
+                                Icogne Jazz Festival
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mar.</span>08/07
+                            </td>
+
+                            <td class="event">
+                                Envol
+                            </td>
+
+                            <td class="location">
+                                Médiathèque de Ferney-Voltaire
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Lun.</span>14/07
+                            </td>
+
+                            <td class="event">
+                                Anima
+                            </td>
+
+                            <td class="location">
+                                Montreux Jazz Festival
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mar.</span>15/07
+                            </td>
+
+                            <td class="event">
+                                Anima
+                            </td>
+
+                            <td class="location">
+                                Montreux Jazz Festival
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>17/07
+                            </td>
+
+                            <td class="event">
+                                Envol
+                            </td>
+
+                            <td class="location">
+                                La Poudrière, Gex
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>19/07
+                            </td>
+
+                            <td class="event">
+                                Mara
+                            </td>
+
+                            <td class="location">
+                                L'Index, Chamonix
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>23/07
+                            </td>
+
+                            <td class="event">
+                                Cheers Dudes
+                            </td>
+
+                            <td class="location">
+                                Anthy-sur-Léman
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>26/07
+                            </td>
+
+                            <td class="event">
+                                Sol Rumberos
+                            </td>
+
+                            <td class="location">
+                                Penthereaz
+                            </td>
+                        </tr>
+
+                        <!-- AOÛT -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Août 2025</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>01/08
+                            </td>
+
+                            <td class="event">
+                                Maxance Leda
+                            </td>
+
+                            <td class="location">
+                                Fête Nationale, Vuarrens
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>02/08
+                            </td>
+
+                            <td class="event">
+                                Aro Solo
+                            </td>
+
+                            <td class="location">
+                                Mariage privé
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Lun.</span>04/08
+                            </td>
+
+                            <td class="event">
+                                Totaiota
+                            </td>
+
+                            <td class="location">
+                                Gallass Club, Roma
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>08/08
+                            </td>
+
+                            <td class="event">
+                                Aro Solo
+                            </td>
+
+                            <td class="location">
+                                Eternal Concept, Evian-les-Bains
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>08/08
+                            </td>
+
+                            <td class="event">
+                                Alex &amp; Aro
+                            </td>
+
+                            <td class="location">
+                                Django, Evian-les-Bains
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>09/08
+                            </td>
+
+                            <td class="event">
+                                Da Beatroots
+                            </td>
+
+                            <td class="location">
+                                Villars-sur-Ollon
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Lun.</span>11/08
+                            </td>
+
+                            <td class="event">
+                                Lily Sollors
+                            </td>
+
+                            <td class="location">
+                                Artefax, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>16/08
+                            </td>
+
+                            <td class="event">
+                                Envol
+                            </td>
+
+                            <td class="location">
+                                Chalet Pointu, Lélex
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>21/08
+                            </td>
+
+                            <td class="event">
+                                Aro Solo
+                            </td>
+
+                            <td class="location">
+                                Soirée Espagne, EMS
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>22/08
+                            </td>
+
+                            <td class="event">
+                                Aro Solo
+                            </td>
+
+                            <td class="location">
+                                Soirée Italie, EMS
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>22/08
+                            </td>
+
+                            <td class="event">
+                                Mayte
+                            </td>
+
+                            <td class="location">
+                                Thonon-les-Bains
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>28/08
+                            </td>
+
+                            <td class="event">
+                                Maxance Leda
+                            </td>
+
+                            <td class="location">
+                                Private Event
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>30/08
+                            </td>
+
+                            <td class="event">
+                                SAME Band
+                            </td>
+
+                            <td class="location">
+                                Ferme Sarasin, Le Grand-Saconnex
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>31/08
+                            </td>
+
+                            <td class="event">
+                                ChapVert
+                            </td>
+
+                            <td class="location">
+                                Maison de Quartier du Désert, Lausanne
+                            </td>
+                        </tr>
+
+                        <!-- SEPTEMBRE -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Septembre 2025</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>03/09
+                            </td>
+
+                            <td class="event">
+                                Polaris
+                            </td>
+
+                            <td class="location">
+                                Private Event
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>04/09
+                            </td>
+
+                            <td class="event">
+                                Los Azulejos
+                            </td>
+
+                            <td class="location">
+                                Terrasse des Tilleuls, Rolle
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>05/09
+                            </td>
+
+                            <td class="event">
+                                Birds
+                            </td>
+
+                            <td class="location">
+                                EPSM Sans Souci
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>05/09
+                            </td>
+
+                            <td class="event">
+                                Totaiota
+                            </td>
+
+                            <td class="location">
+                                Cully, Vins et poissons
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>06/09
+                            </td>
+
+                            <td class="event">
+                                Kalakuta Mentality
+                            </td>
+
+                            <td class="location">
+                                La Jonquille, Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>07/09
+                            </td>
+
+                            <td class="event">
+                                Geometry of Chance
+                            </td>
+
+                            <td class="location">
+                                Cully, Vins et poissons
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>11/09
+                            </td>
+
+                            <td class="event">
+                                Birds
+                            </td>
+
+                            <td class="location">
+                                Jumeaux Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>12/09
+                            </td>
+
+                            <td class="event">
+                                Totaiota
+                            </td>
+
+                            <td class="location">
+                                Catalyse, Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>12/09
+                            </td>
+
+                            <td class="event">
+                                Mathilde Elise
+                            </td>
+
+                            <td class="location">
+                                Cully, Vins et poissons
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>12/09
+                            </td>
+
+                            <td class="event">
+                                Kalakuta Mentality
+                            </td>
+
+                            <td class="location">
+                                La Jonquille, Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>13/09
+                            </td>
+
+                            <td class="event">
+                                Alex &amp; Aro
+                            </td>
+
+                            <td class="location">
+                                Private Event
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>13/09
+                            </td>
+
+                            <td class="event">
+                                Totaiota
+                            </td>
+
+                            <td class="location">
+                                Le Pointu, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>17/09
+                            </td>
+
+                            <td class="event">
+                                Pyrotyri
+                            </td>
+
+                            <td class="location">
+                                EMA, Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>19/09
+                            </td>
+
+                            <td class="event">
+                                Envol
+                            </td>
+
+                            <td class="location">
+                                Eglise Le Cèdre, Nyon
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>19/09
+                            </td>
+
+                            <td class="event">
+                                Polaris
+                            </td>
+
+                            <td class="location">
+                                Private Event, Martigny
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Lun.</span>22/09
+                            </td>
+
+                            <td class="event">
+                                Nina Zette
+                            </td>
+
+                            <td class="location">
+                                Urgence Disk Records, Genève
+                            </td>
+                        </tr>
+
+                        <!-- OCTOBRE -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Octobre 2025</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>01/10
+                            </td>
+
+                            <td class="event">
+                                Irikanto
+                            </td>
+
+                            <td class="location">
+                                Bar Satellite, EPFL, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>02/10
+                            </td>
+
+                            <td class="event">
+                                Mathilde Elise
+                            </td>
+
+                            <td class="location">
+                                Isteria Festival, Vernier
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>03/10
+                            </td>
+
+                            <td class="event">
+                                Irikanto
+                            </td>
+
+                            <td class="location">
+                                Jazz Contreband, Starting Block, Bernex
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>04/10
+                            </td>
+
+                            <td class="event">
+                                Calypso Quartet
+                            </td>
+
+                            <td class="location">
+                                Private Event
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>09/10
+                            </td>
+
+                            <td class="event">
+                                Aro Solo
+                            </td>
+
+                            <td class="location">
+                                Private Event
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>10/10
+                            </td>
+
+                            <td class="event">
+                                Calypso Quartet
+                            </td>
+
+                            <td class="location">
+                                Private Event
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>11/10
+                            </td>
+
+                            <td class="event">
+                                Nina Zette
+                            </td>
+
+                            <td class="location">
+                                La Rmize, Thonon-les-Bains
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>24/10
+                            </td>
+
+                            <td class="event">
+                                Tribute Stevie Wonder
+                            </td>
+
+                            <td class="location">
+                                Jumeaux Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Lun.</span>27/10
+                            </td>
+
+                            <td class="event">
+                                Los Azulejos
+                            </td>
+
+                            <td class="location">
+                                EPFL, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>29/10
+                            </td>
+
+                            <td class="event">
+                                Mathilde Elise
+                            </td>
+
+                            <td class="location">
+                                Les Caves du Cep d’Or, Vevey
+                            </td>
+                        </tr>
+
+                        <!-- NOVEMBRE -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Novembre 2025</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>01/11
+                            </td>
+
+                            <td class="event">
+                                Geometry of Chance
+                            </td>
+
+                            <td class="location">
+                                Le Pointu, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mar.</span>04/11
+                            </td>
+
+                            <td class="event">
+                                May Birds
+                            </td>
+
+                            <td class="location">
+                                Casino de Montbenon, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>05/11
+                            </td>
+
+                            <td class="event">
+                                Totaiota
+                            </td>
+
+                            <td class="location">
+                                Bar Satellite, EPFL, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>06/11
+                            </td>
+
+                            <td class="event">
+                                HEMU Jazz
+                            </td>
+
+                            <td class="location">
+                                Chorus Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>07/11
+                            </td>
+
+                            <td class="event">
+                                Sunshine Rivers
+                            </td>
+
+                            <td class="location">
+                                Yourte en Lavaux, Cully
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>08/11
+                            </td>
+
+                            <td class="event">
+                                Sunshine Rivers
+                            </td>
+
+                            <td class="location">
+                                Yourte en Lavaux, Cully
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>14/11
+                            </td>
+
+                            <td class="event">
+                                Polaris
+                            </td>
+
+                            <td class="location">
+                                Etablissement Scolaire, Préverenges
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>15/11
+                            </td>
+
+                            <td class="event">
+                                Ester Maiorani
+                            </td>
+
+                            <td class="location">
+                                Private Event, Fribourg
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>16/11
+                            </td>
+
+                            <td class="event">
+                                La Belle et la Bête
+                            </td>
+
+                            <td class="location">
+                                Casino de Vallorbe
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>26/11
+                            </td>
+
+                            <td class="event">
+                                HEMU New Baroque
+                            </td>
+
+                            <td class="location">
+                                BCV Concert Hall, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>27/11
+                            </td>
+
+                            <td class="event">
+                                Ester Maiorani
+                            </td>
+
+                            <td class="location">
+                                Private Event, Lausanne
+                            </td>
+                        </tr>
+
+                        <!-- DÉCEMBRE -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Décembre 2025</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>03/12
+                            </td>
+
+                            <td class="event">
+                                HEMU Christmas
+                            </td>
+
+                            <td class="location">
+                                Atrium de l'EJMA, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>06/12
+                            </td>
+
+                            <td class="event">
+                                La Belle et la Bête
+                            </td>
+
+                            <td class="location">
+                                Univers@lle, Châtel-Saint-Denis
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>14/12
+                            </td>
+
+                            <td class="event">
+                                La Belle et la Bête
+                            </td>
+
+                            <td class="location">
+                                La Tuffière, Corpataux
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mar.</span>16/12
+                            </td>
+
+                            <td class="event">
+                                EPFL Big Band
+                            </td>
+
+                            <td class="location">
+                                EPFL, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>19/12
+                            </td>
+
+                            <td class="event">
+                                SAME Band
+                            </td>
+
+                            <td class="location">
+                                Private Event, Gorgier
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>31/12
+                            </td>
+
+                            <td class="event">
+                                Mario and Friends
+                            </td>
+
+                            <td class="location">
+                                L'Aparté, Evian-les-Bains, France
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="season-content" id="season-2024">
+
+                <table class="events-table">
+
+                    <thead>
+                        <tr>
+                            <th class="date">Date</th>
+                            <th class="event">Projet</th>
+                            <th class="location">Lieu</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- SEPTEMBRE -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Septembre 2024</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Lun.</span>30/09, 20h00
+                            </td>
+
+                            <td class="event">
+                                Robin Luthi and Friends
+                            </td>
+
+                            <td class="location">
+                                Atrium de l'EJMA, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Lun.</span>30/09, 21h15
+                            </td>
+
+                            <td class="event">
+                                Ryslo
+                            </td>
+
+                            <td class="location">
+                                Atrium de l'EJMA, Lausanne
+                            </td>
+                        </tr>
+
+                        <!-- OCTOBRE -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Octobre 2024</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Dim.</span>06/10
+                            </td>
+
+                            <td class="event">
+                                Los Azulejos
+                            </td>
+
+                            <td class="location">
+                                Conservatoire de l'Ouest Vaudois, Nyon
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>12/10, 20h30
+                            </td>
+
+                            <td class="event">
+                                Hommage à Michel Legrand
+                            </td>
+
+                            <td class="location">
+                                Cave de Lancy, Lancy Marignac
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>16/10
+                            </td>
+
+                            <td class="event">
+                                Mosaïc Trio
+                            </td>
+
+                            <td class="location">
+                                UNIGE
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>24/10, 20h30
+                            </td>
+
+                            <td class="event">
+                                Brazilian Jazz Songs
+                            </td>
+
+                            <td class="location">
+                                Chorus Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>30/10, 18h00
+                            </td>
+
+                            <td class="event">
+                                Robin Luthi and Friends
+                            </td>
+
+                            <td class="location">
+                                JazzOnze+ Festival, Lausanne
+                            </td>
+                        </tr>
+
+                        <!-- NOVEMBRE -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Novembre 2024</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>01/11, 18h00
+                            </td>
+
+                            <td class="event">
+                                Ryslo
+                            </td>
+
+                            <td class="location">
+                                JazzOnze+ Festival, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>02/11
+                            </td>
+
+                            <td class="event">
+                                Dantong Wang
+                            </td>
+
+                            <td class="location">
+                                JazzOnze+ Festival, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>08/11
+                            </td>
+
+                            <td class="event">
+                                Los Azulejos
+                            </td>
+
+                            <td class="location">
+                                Conservatoire d'Annecy, Annecy (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>14/11, 21h30
+                            </td>
+
+                            <td class="event">
+                                HEMU Jazz
+                            </td>
+
+                            <td class="location">
+                                Chorus Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>15/11
+                            </td>
+
+                            <td class="event">
+                                Los Azulejos
+                            </td>
+
+                            <td class="location">
+                                Théâtre de Beausobre, Morges
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>16/11
+                            </td>
+
+                            <td class="event">
+                                Ryslo
+                            </td>
+
+                            <td class="location">
+                                Private Event
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mar.</span>19/11
+                            </td>
+
+                            <td class="event">
+                                Jam session
+                            </td>
+
+                            <td class="location">
+                                On va où, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>21/11, 21h30
+                            </td>
+
+                            <td class="event">
+                                Chansons Musiques du Monde
+                            </td>
+
+                            <td class="location">
+                                Chorus Jazz Club, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>22/11
+                            </td>
+
+                            <td class="event">
+                                Kind of Quintet
+                            </td>
+
+                            <td class="location">
+                                Le Faitout, La Mulatière (France)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>23/11, 18h30
+                            </td>
+
+                            <td class="event">
+                                Maxance Leda
+                            </td>
+
+                            <td class="location">
+                                Le Pointu, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>27/11
+                            </td>
+
+                            <td class="event">
+                                Mosaïc Trio
+                            </td>
+
+                            <td class="location">
+                                Brasserie Belleville, Lausanne
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>29/11
+                            </td>
+
+                            <td class="event">
+                                ANIMA
+                            </td>
+
+                            <td class="location">
+                                Bleu Café, Neuchâtel (NE)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>30/11
+                            </td>
+
+                            <td class="event">
+                                Los Azulejos
+                            </td>
+
+                            <td class="location">
+                                Forum Rolex, EPFL, Lausanne
+                            </td>
+                        </tr>
+
+                        <!-- DÉCEMBRE -->
+                        <tr>
+                            <td class="datewd">
+                                <strong>Décembre 2024</strong>
+                            </td>
+                            <td class="event"></td>
+                            <td class="location"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Mer.</span>04/12, 19h00
+                            </td>
+
+                            <td class="event">
+                                Maxance Leda
+                            </td>
+
+                            <td class="location">
+                                Grand Théâtre de Genève
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Jeu.</span>05/12
+                            </td>
+
+                            <td class="event">
+                                Mosaïc
+                            </td>
+
+                            <td class="location">
+                                La Marive, Yverdon-les-Bains (VD)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Ven.</span>06/12
+                            </td>
+
+                            <td class="event">
+                                Mosaïc
+                            </td>
+
+                            <td class="location">
+                                La Marive, Yverdon-les-Bains (VD)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Sam.</span>07/12, 17h00
+                            </td>
+
+                            <td class="event">
+                                Kind of Quintet
+                            </td>
+
+                            <td class="location">
+                                JS Musique, Lyon
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="datewd">
+                                <span class="weekday">Lun.</span>09/12
+                            </td>
+
+                            <td class="event">
+                                Los Azulejos
+                            </td>
+
+                            <td class="location">
+                                Private Event, Genève
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const eventsPerPage = 10;
+
+            const table = document.getElementById("past-events");
+            const pagination = document.getElementById("past-pagination");
+
+            if (!table || !pagination) {
+                console.error("Pagination : tableau ou pagination introuvable.");
+                return;
+            }
+
+            /*
+             * On récupère tous les concerts.
+             * Chaque <tbody> correspond à un mois.
+             */
+            const months = Array.from(table.querySelectorAll("tbody"));
+
+            const events = [];
+
+            months.forEach(function (month) {
+
+                const rows = Array.from(month.querySelectorAll("tr"));
+
+                if (rows.length === 0) {
+                    return;
+                }
+
+                /*
+                 * Première ligne = nom du mois
+                 */
+                const monthHeader = rows[0];
+
+                /*
+                 * Les lignes suivantes = concerts
+                 */
+                rows.slice(1).forEach(function (row) {
+
+                    events.push({
+                        row: row,
+                        month: month,
+                        header: monthHeader
+                    });
+
+                });
+
+            });
+
+            const totalPages = Math.ceil(events.length / eventsPerPage);
+
+            /*
+             * ============================
+             * PAGINATION
+             * ============================
+             */
+
+            function createPagination() {
+
+                pagination.innerHTML = "";
+
+                if (totalPages <= 1) {
+                    return;
+                }
+
+                /*
+                 * Bouton précédent
+                 */
+                const previous = document.createElement("button");
+
+                previous.textContent = "←";
+
+                previous.addEventListener("click", function () {
+
+                    const firstEvent = events[0].row;
+
+                    const currentPage =
+                        getCurrentPageFromScroll();
+
+                    if (currentPage > 1) {
+                        goToPage(currentPage - 1);
+                    }
+
+                });
+
+                pagination.appendChild(previous);
+
+
+                /*
+                 * Numéros des pages
+                 */
+                for (let page = 1; page <= totalPages; page++) {
+
+                    const button = document.createElement("button");
+
+                    button.textContent = page;
+
+                    button.addEventListener("click", function () {
+                        goToPage(page);
+                    });
+
+                    pagination.appendChild(button);
+                }
+
+
+                /*
+                 * Bouton suivant
+                 */
+                const next = document.createElement("button");
+
+                next.textContent = "→";
+
+                next.addEventListener("click", function () {
+
+                    const currentPage =
+                        getCurrentPageFromScroll();
+
+                    if (currentPage < totalPages) {
+                        goToPage(currentPage + 1);
+                    }
+
+                });
+
+                pagination.appendChild(next);
+            }
+
+
+            /*
+             * ============================
+             * ALLER À UNE PAGE
+             * ============================
+             */
+
+            function goToPage(page) {
+
+                const index = (page - 1) * eventsPerPage;
+
+                const event = events[index];
+
+                if (!event) {
+                    return;
+                }
+
+                const rowPosition =
+                    event.row.getBoundingClientRect().top +
+                    window.scrollY -
+                    100;
+
+                window.scrollTo({
+                    top: rowPosition,
+                    behavior: "smooth"
+                });
+
+                updateActivePage(page);
+            }
+
+
+            /*
+             * ============================
+             * PAGE ACTUELLE
+             * ============================
+             */
+
+            function getCurrentPageFromScroll() {
+
+                const scrollPosition =
+                    window.scrollY + 150;
+
+                let currentPage = 1;
+
+                events.forEach(function (event, index) {
+
+                    const position =
+                        event.row.getBoundingClientRect().top +
+                        window.scrollY;
+
+                    if (position <= scrollPosition) {
+
+                        currentPage =
+                            Math.floor(index / eventsPerPage) + 1;
+
+                    }
+
+                });
+
+                return currentPage;
+            }
+
+
+            /*
+             * ============================
+             * PAGE ACTIVE
+             * ============================
+             */
+
+            function updateActivePage(page) {
+
+                const buttons =
+                    pagination.querySelectorAll("button");
+
+                buttons.forEach(function (button) {
+                    button.classList.remove("active");
+                });
+
+                /*
+                 * +1 car le premier bouton est ←
+                 */
+                if (buttons[page]) {
+                    buttons[page].classList.add("active");
+                }
+            }
+
+
+            /*
+             * ============================
+             * MISE À JOUR AU SCROLL
+             * ============================
+             */
+
+            window.addEventListener("scroll", function () {
+
+                const page = getCurrentPageFromScroll();
+
+                updateActivePage(page);
+
+            });
+
+
+            /*
+             * ============================
+             * INITIALISATION
+             * ============================
+             */
+
+            createPagination();
+
+            updateActivePage(1);
+
+        });
+    </script>
+
+</body>
+
+</html>
