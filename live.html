@@ -22,6 +22,29 @@
     <link rel="stylesheet" href="styles.css" />
 
     <style>
+        .btn-year {
+  border-radius: var(--radius);
+  padding: 8px 18px;
+  font-weight: 500;
+
+  color: var(--color-primary);
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+
+  text-decoration: none !important;
+}
+
+.btn-year:hover {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-bg-secondary);
+  color: var(--color-white);
+}
+
+.btn-year.active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
         /* =========================
            EVENTS TABLE
         ========================= */
@@ -62,10 +85,12 @@
         }
 
         .event {
+            font-weight: bold;
             width: 42%;
         }
 
         .location {
+            color: #888;
             width: 30%;
         }
 
@@ -115,19 +140,7 @@
                 letter-spacing: 1px;
                 color: #888;
                 margin-bottom: 2px;
-            }
-
-            .events-table .date::before {
-                content: "Date";
-            }
-
-            .events-table .event::before {
-                content: "Event";
-            }
-
-            .events-table .location::before {
-                content: "Location";
-            }
+            }            
 
             .date {
                 white-space: normal;
@@ -144,17 +157,18 @@
         }
 
         .pagination button {
-            border: none;
+            color: var(--color-primary);
+            border: 1px solid var(--color-primary);
             background: transparent;
-            color: inherit;
             padding: 8px 12px;
             cursor: pointer;
-            font-family: inherit;
             font-size: 14px;
         }
 
         .pagination button:hover {
             text-decoration: underline;
+            background-color: var(--color-primary);
+            color: var(--color-white);
         }
 
         .pagination button.active {
@@ -176,24 +190,97 @@
 
 
 <script>
-    function showSeason(year, button) {
+    
+function showSeason(year, button) {
 
-        // Cache toutes les saisons
-        document.querySelectorAll(".season-content").forEach(function (season) {
-            season.classList.remove("active");
-        });
+    // Cache toutes les saisons
+    document.querySelectorAll(".season-content").forEach(function (season) {
+        season.classList.remove("active");
+    });
 
-        // Désactive tous les onglets
-        document.querySelectorAll(".season-tab").forEach(function (tab) {
-            tab.classList.remove("active");
-        });
+    // Désactive tous les onglets
+    document.querySelectorAll(".season-tab").forEach(function (tab) {
+        tab.classList.remove("active");
+    });
 
-        // Affiche l'année sélectionnée
-        document.getElementById("season-" + year).classList.add("active");
+    // Affiche l'année sélectionnée
+    const season = document.getElementById("season-" + year);
 
-        // Colore l'onglet sélectionné
-        button.classList.add("active");
+    if (!season) return;
+
+    season.classList.add("active");
+
+    // Colore l'onglet sélectionné
+    button.classList.add("active");
+}
+
+
+// Au chargement de la page
+document.addEventListener("DOMContentLoaded", function () {
+
+    const now = new Date();
+
+    const currentYear = now.getFullYear();
+    const currentMonth = now.getMonth();
+
+    // Affiche la saison correspondant à l'année actuelle
+    const season = document.getElementById("season-" + currentYear);
+
+    if (!season) return;
+
+    document.querySelectorAll(".season-content").forEach(function (s) {
+        s.classList.remove("active");
+    });
+
+    document.querySelectorAll(".season-tab").forEach(function (tab) {
+        tab.classList.remove("active");
+    });
+
+    season.classList.add("active");
+
+    const yearButton = document.querySelector(
+        '.season-tab[onclick*="' + currentYear + '"]'
+    );
+
+    if (yearButton) {
+        yearButton.classList.add("active");
     }
+
+    // Récupère les titres des mois
+    const monthHeaders = season.querySelectorAll("tbody tr");
+
+    const monthNames = [
+        "Janvier", "Février", "Mars", "Avril",
+        "Mai", "Juin", "Juillet", "Août",
+        "Septembre", "Octobre", "Novembre", "Décembre"
+    ];
+
+    const currentMonthName = monthNames[currentMonth];
+
+    // Cherche le titre du mois actuel
+    let targetMonth = null;
+
+    monthHeaders.forEach(function (row) {
+        const strong = row.querySelector("strong");
+
+        if (strong && strong.textContent.trim() ===
+            currentMonthName + " " + currentYear) {
+            targetMonth = row;
+        }
+    });
+
+    // Défile jusqu'au mois actuel
+    if (targetMonth) {
+        setTimeout(function () {
+            targetMonth.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }, 200);
+    }
+
+});
+
 </script>
 
 <body>
@@ -210,9 +297,9 @@
             <h1>Saisons</h1>
 
             <div class="season-tabs">
-                <button class="season-tab active" onclick="showSeason(2026, this)">2026</button>
-                <button class="season-tab" onclick="showSeason(2025, this)">2025</button>
-                <button class="season-tab" onclick="showSeason(2024, this)">2024</button>
+                <button class="btn-year season-tab active" onclick="showSeason(2026, this)">2026</button>
+                <button class="btn-year season-tab" onclick="showSeason(2025, this)">2025</button>
+                <button class="btn-year season-tab" onclick="showSeason(2024, this)">2024</button>
             </div>
 
             <div class="season-content active" id="season-2026">
