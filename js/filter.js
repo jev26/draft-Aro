@@ -2,31 +2,72 @@
 // Gallery Filter 
 // ======================================
 
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-  const buttons = document.querySelectorAll(".filter-btn");
-const items = document.querySelectorAll(".gallery-item");
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const galleryItems = document.querySelectorAll(".gallery-item");
 
-buttons.forEach(btn => {
-  btn.addEventListener("click", () => {
+  let activeFilters = [];
 
-    // active button
-    buttons.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
+  function filterGallery() {
 
-    const filter = btn.getAttribute("data-filter");
+    galleryItems.forEach(item => {
 
-    items.forEach(item => {
-      const category = item.getAttribute("data-category");
+      const categories = (item.dataset.category || "")
+        .toLowerCase()
+        .split(/\s+/);
 
-      if (filter === "all" || category.includes(filter)) {
-        item.style.display = "block";
+      // Mode ET : toutes les catégories doivent correspondre
+      const matches = activeFilters.length === 0 ||
+        activeFilters.every(filter => categories.includes(filter));
+
+      item.style.display = matches ? "" : "none";
+
+    });
+
+  }
+
+  filterButtons.forEach(button => {
+
+    button.addEventListener("click", function () {
+
+      const filter = this.dataset.filter;
+
+      if (filter === "all") {
+
+        activeFilters = [];
+
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        this.classList.add("active");
+
       } else {
-        item.style.display = "none";
+
+        document.querySelector('[data-filter="all"]')
+          .classList.remove("active");
+
+        if (activeFilters.includes(filter)) {
+
+          activeFilters = activeFilters.filter(f => f !== filter);
+          this.classList.remove("active");
+
+        } else {
+
+          activeFilters.push(filter);
+          this.classList.add("active");
+
+        }
+
+        if (activeFilters.length === 0) {
+          document.querySelector('[data-filter="all"]')
+            .classList.add("active");
+        }
+
       }
+
+      filterGallery();
+
     });
 
   });
-});
 
 });
