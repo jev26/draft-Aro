@@ -149,9 +149,14 @@ header .overlay-text {
   box-shadow: none !important;
 }
 
+/* Hamburger par défaut : bleu foncé */
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(1,1,77,1)' stroke-width='2' d='M4 7h22M4 15h22'/%3E%3C/svg%3E") !important;
-  color: var(--color-primary);
+}
+
+/* Hamburger blanc sur header avec image */
+.navbar-img .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' d='M4 7h22M4 15h22'/%3E%3C/svg%3E") !important;
 }
 
 .dropdown-menu {

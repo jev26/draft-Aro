@@ -171,10 +171,23 @@ h1, h2, h3, h4 {
     </div>
   <!-- filtres -->
      <div class="container text-center mb-5">
-      <div class="filter-container">
+      <h5>Filtrer les groupes</h5>
+      <div class="filter-container mb-2">
         <button class="btn-red btn-outline-dark filter-btn active" data-filter="all">Tout</button>
-        <button class="btn-red btn-outline-dark filter-btn" data-filter="chant">Chant</button>
+      </div> 
+      <div class="filter-container mb-2">
+        <button class="btn-red btn-outline-dark filter-btn" data-filter="chant">Avec chant</button>
         <button class="btn-red btn-outline-dark filter-btn" data-filter="instrumental">Instrumental</button>
+      </div> 
+      <div class="filter-container mb-2">
+        <button class="btn-red btn-outline-dark filter-btn" data-filter="solo">Solo</button>
+        <button class="btn-red btn-outline-dark filter-btn" data-filter="duo">Duo</button>
+        <button class="btn-red btn-outline-dark filter-btn" data-filter="trio">Trio</button>
+        <button class="btn-red btn-outline-dark filter-btn" data-filter="4tet">4tet</button>        
+        <button class="btn-red btn-outline-dark filter-btn" data-filter="5tet">5tet</button>
+        <button class="btn-red btn-outline-dark filter-btn" data-filter="large">Large formation</button>
+      </div> 
+      <div class="filter-container">
         <button class="btn-red btn-outline-dark filter-btn" data-filter="jazz">Jazz</button>
         <button class="btn-red btn-outline-dark filter-btn" data-filter="pop">Pop</button>
         <button class="btn-red btn-outline-dark filter-btn" data-filter="soul">Soul</button>
@@ -182,35 +195,36 @@ h1, h2, h3, h4 {
         <button class="btn-red btn-outline-dark filter-btn" data-filter="oriental">Oriental</button>
         <button class="btn-red btn-outline-dark filter-btn" data-filter="funk">Funk</button>
         <button class="btn-red btn-outline-dark filter-btn" data-filter="rap">Rap</button>
-        <button class="btn-red btn-outline-dark filter-btn" data-filter="autre">Autre</button>
         <button class="btn-red btn-outline-dark filter-btn" data-filter="electro">Electro</button>
+        <button class="btn-red btn-outline-dark filter-btn" data-filter="autre">Autre</button>
         </div>
     </div>
 <!-- 3 articles -->
     <div class="row g-0">
 
-      <article class="col-12 col-md-4 gallery-item" data-category="instrumental jazz">
+      <article class="col-12 col-md-4 gallery-item" data-category="instrumental jazz 4tet">
           <div class="image-block" style="background-image: url('sorties/other/Calypso2.png');">
             <div class="text text-center">
               <h2>Calypso Quartet</h2>
             </div>
           </div>
+        
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="instrumental jazz">
+      <article class="col-12 col-md-4 gallery-item" data-category="instrumental jazz 5tet">
         <!--sorties/pyrotyri/pyrotyri.html-->
         <!--https://www.instagram.com/py_ro_ty_ri/-->
-        <a href="https://www.youtube.com/watch?v=02kLlqrTV60" aria-label="En savoir plus sur le groupe - Pyrotyri Quintet"></a>>
+        <a href="https://www.youtube.com/watch?v=02kLlqrTV60" aria-label="En savoir plus sur le groupe - Pyrotyri Quintet">
           <div class="image-block" style="background-image: url('sorties/pyrotyri/PyrotyriGeneve.jpg');">
             <div class="text text-center">
-              <h2>Pyrotyri Quintet</h2>
+              <h2>Pyrotyri</h2>
             </div>
           </div>
         </a>
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="chant jazz pop autre">
-        <a href="https://www.youtube.com/watch?v=L03y-PxIUFo" aria-label="En savoir plus sur le groupe - Mary Lou"></a>>
+      <article class="col-12 col-md-4 gallery-item" data-category="chant jazz pop autre duo">
+        <a href="https://www.youtube.com/watch?v=L03y-PxIUFo" aria-label="En savoir plus sur le groupe - Mary Lou">
         <div class="image-block" style="background-image: url('sorties/other/MarilouAroV.png');">
             <div class="text text-center">
               <h2>Mary Lou</h2>
@@ -219,8 +233,8 @@ h1, h2, h3, h4 {
           </a>
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="instrumental jazz pop autre">
-        <a href="https://www.instagram.com/aroramamonjy" aria-label="En savoir plus sur le groupe - Aro Solo"></a>>
+      <article class="col-12 col-md-4 gallery-item" data-category="instrumental jazz pop autre solo">
+        <a href="https://www.instagram.com/aroramamonjy" aria-label="En savoir plus sur le groupe - Aro Solo">
           <div class="image-block" style="background-image: url('img/aro_sax.webp');">
             <div class="text text-center">
               <h2>Aro solo</h2>
@@ -231,7 +245,7 @@ h1, h2, h3, h4 {
 
       <article class="col-12 col-md-4 gallery-item" data-category="instrumental jazz funk">
         <!--sorties/RSYLO/RYSLO.html-->
-        <a href="https://www.youtube.com/watch?v=Q-rR0RAHDvc&list=OLAK5uy_mAvm99WSHl-xB-HdB_CRNseu5c9ixHXtg" aria-label="En savoir plus sur le groupe - RYSLO"></a>>
+        <a href="https://www.youtube.com/watch?v=Q-rR0RAHDvc&list=OLAK5uy_mAvm99WSHl-xB-HdB_CRNseu5c9ixHXtg" aria-label="En savoir plus sur le groupe - RYSLO">
           <div class="image-block" style="background-image: url('sorties/RSYLO/ryslo.jpg');">
             <div class="text text-center">
               <h2>RYSLO</h2>
@@ -240,8 +254,8 @@ h1, h2, h3, h4 {
         </a>
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="chant jazz pop">
-        <a href='https://www.youtube.com/shorts/wbVT1cH3pOw' aria-label="En savoir plus sur le groupe - Trio Soleil"></a>> <!--"sorties/MarilouDantongAro/MarilouDantongAro.html">-->
+      <article class="col-12 col-md-4 gallery-item" data-category="chant jazz pop trio">
+        <a href='https://www.youtube.com/shorts/wbVT1cH3pOw' aria-label="En savoir plus sur le groupe - Trio Soleil"> <!--"sorties/MarilouDantongAro/MarilouDantongAro.html">-->
           <div class="image-block" style="background-image: url('sorties/MarilouDantongAro/DantongMarilouAroTEST.jpg');">
             <div class="text text-center">
               <h2>Trio Soleil</h2>
@@ -250,8 +264,8 @@ h1, h2, h3, h4 {
         </a>
       </article>
       
-      <article class="col-12 col-md-4 gallery-item" data-category="chant jazz pop">
-        <a href="https://youtu.be/q9PpRIuI550?si=e285t_4mp9gwduGV" aria-label="En savoir plus sur le groupe - Les Saisons"></a>> 
+      <article class="col-12 col-md-4 gallery-item" data-category="chant jazz pop solo duo large">
+        <a href="https://youtu.be/q9PpRIuI550?si=e285t_4mp9gwduGV" aria-label="En savoir plus sur le groupe - Les Saisons"> 
           <div class="image-block" style="background-image: url('sorties/Saisons/saisons-recital-bleu.png');">
             <div class="text text-center">
               <h2>Les Saisons</h2>
@@ -260,7 +274,7 @@ h1, h2, h3, h4 {
         </a>
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="instrumental jazz manouche">
+      <article class="col-12 col-md-4 gallery-item" data-category="instrumental jazz manouche trio">
         <!--sorties/Polaris/Polaris.html-->
         <a href="https://www.instagram.com/loris.hry/" aria-label="En savoir plus sur le groupe - Polaris Trio">
           <div class="image-block" style="background-image: url('sorties/Polaris/Polaris.JPG');">
@@ -271,7 +285,7 @@ h1, h2, h3, h4 {
         </a>
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="chant jazz">
+      <article class="col-12 col-md-4 gallery-item" data-category="chant jazz 5tet">
         <!--sorties/moondancer/moondancer.html-->
         <a href="https://www.instagram.com/moondancer_jazz/" aria-label="En savoir plus sur le groupe - Moondancer Jazz">
           <div class="image-block" style="background-image: url('sorties/moondancer/moondancer.jpg');">
@@ -282,7 +296,7 @@ h1, h2, h3, h4 {
         </a>
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="jazz">
+      <article class="col-12 col-md-4 gallery-item" data-category="jazz duo">
         <!--sorties/birds.html-->
         <a href="sorties/birds/birds.html" aria-label="En savoir plus sur le groupe - Birds">
           <div class="image-block" style="background-image: url('sorties/birds/BirdsT2.png');">
@@ -293,7 +307,7 @@ h1, h2, h3, h4 {
         </a>
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="autre pop chant funk">
+      <article class="col-12 col-md-4 gallery-item" data-category="autre pop chant funk 5tet">
         <!--sorties/Bab_Lo/Bab_Lo.html-->
         <a href="https://www.instagram.com/bab_et_lo/" aria-label="En savoir plus sur le groupe - Bab et Lo">
           <div class="image-block" style="background-image: url('sorties/Bab_Lo/bab_lo.png');">
@@ -337,7 +351,7 @@ h1, h2, h3, h4 {
         </a>
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="autre chant pop">
+      <article class="col-12 col-md-4 gallery-item" data-category="autre chant pop duo 5tet">
         <!--sorties/Ninazette/Ninazette.html-->
         <a href="https://www.ninazette.com/" aria-label="En savoir plus sur le groupe - Ninazette">
           <div class="image-block" style="background-image: url('sorties/Ninazette/TESTGIF.gif');">
@@ -348,7 +362,7 @@ h1, h2, h3, h4 {
         </a>
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="instrumental pop jazz">
+      <article class="col-12 col-md-4 gallery-item" data-category="instrumental pop jazz duo">
         <!--sorties/Concert_coeur/concert_coeur.html-->
         <a href="https://www.lesconcertsducoeur.ch/fr/artistes/les-accords" aria-label="En savoir plus sur le groupe - Les Accords Duo">
           <div class="image-block"
@@ -360,7 +374,7 @@ h1, h2, h3, h4 {
         </a>
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="pop chant">
+      <article class="col-12 col-md-4 gallery-item" data-category="pop chant 4tet">
         <!--sorties/chapvert/chapvert.html-->
         <a href="https://www.instagram.com/chapvertmusic/" aria-label="En savoir plus sur le groupe - Chapvert">
           <div class="image-block" style="background-image: url('sorties/chapvert/chapvertFullBand.jpg');">
@@ -371,7 +385,7 @@ h1, h2, h3, h4 {
         </a>
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="jazz chant">
+      <article class="col-12 col-md-4 gallery-item" data-category="jazz chant duo">
         <!--sorties/Envol/Envol.html--> 
         <a href="https://www.youtube.com/shorts/b9NHRQ7ozw8" aria-label="En savoir plus sur le groupe - Franciska & Aro">
           <div class="image-block" style="background-image: url('sorties/Franciska/franciskaVid.png');">
@@ -393,7 +407,7 @@ h1, h2, h3, h4 {
         </a>
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="pop chant">
+      <article class="col-12 col-md-4 gallery-item" data-category="pop chant duo">
         <a href="https://www.instagram.com/alex_breahna/" aria-label="En savoir plus sur le groupe - Alex & Aro">
           <div class="image-block"
             style="background-image: url('sorties/Alex_Aro/alexfunky.png');">
@@ -415,7 +429,7 @@ h1, h2, h3, h4 {
         </a>
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="autre chant oriental">
+      <article class="col-12 col-md-4 gallery-item" data-category="autre chant oriental 4tet">
           <div class="image-block"
             style="background-image: url('sorties/other/solrumberos.png');">
             <div class="text text-center">
@@ -425,7 +439,7 @@ h1, h2, h3, h4 {
         </a>
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="pop chant">
+      <article class="col-12 col-md-4 gallery-item" data-category="pop chant 4tet">
         <!--sorties/Pablo/Pablo.html-->
         <a href="https://www.instagram.com/pablo.demena" aria-label="En savoir plus sur le groupe - Pablo Demena">
           <div class="image-block" style="background-image: url('sorties/Pablo/pablo.png');">
@@ -436,7 +450,7 @@ h1, h2, h3, h4 {
         </a>
       </article>
 
-       <article class="col-12 col-md-4 gallery-item" data-category="pop chant">
+       <article class="col-12 col-md-4 gallery-item" data-category="pop chant duo trio">
         <!--sorties/totaiota/totaiota.html-->
         <a href="https://www.instagram.com/totaiota_official/" aria-label="En savoir plus sur le groupe - Totaiota">
           <div class="image-block" style="background-image: url('sorties/totaiota/totaiota.jpg');">
@@ -447,7 +461,7 @@ h1, h2, h3, h4 {
         </a>
       </article>
 
-            <article class="col-12 col-md-4 gallery-item" data-category="pop chant electro">
+            <article class="col-12 col-md-4 gallery-item" data-category="pop chant electro duo trio">
               <!--sorties/alma/alma.html-->
         <a href="https://www.instagram.com/iamalma.ch/" aria-label="En savoir plus sur le groupe - Alma">
           <div class="image-block" style="background-image: url('sorties/alma/alma.png');">
@@ -458,7 +472,7 @@ h1, h2, h3, h4 {
         </a>
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="autre instru oriental">
+      <article class="col-12 col-md-4 gallery-item" data-category="autre instru oriental 5tet">
         <!--sorties/Los_Azulejos/Los_Azulejos.html-->
         <a href="https://www.instagram.com/losazulejos_music/"
           aria-label="En savoir plus sur le groupe - Los Azulejos">
@@ -471,7 +485,7 @@ h1, h2, h3, h4 {
         </a>
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="other chant">
+      <article class="col-12 col-md-4 gallery-item" data-category="other chant large">
         <!--sorties/Kalakuta_Mentality/Kalakuta_Mentality.html-->
         <a href="https://www.instagram.com/kalakuta_mentality"
           aria-label="En savoir plus sur le groupe - Kalakuta Mentality">
@@ -484,7 +498,7 @@ h1, h2, h3, h4 {
         </a>
       </article>
 
-      <article class="col-12 col-md-4 gallery-item" data-category="pop chant">
+      <article class="col-12 col-md-4 gallery-item" data-category="pop chant trio">
         <!--sorties/Pablo/Pablo.html-->
         <a href="https://youtu.be/IjLQeRLuszI?si=QXJShXGGdcqZjuOr" aria-label="En savoir plus sur le groupe - Ester Maiorani Trio">
           <div class="image-block" style="background-image: url('sorties/EsterMaioraniTrio/EsterMaioraniTrio.JPG');">
