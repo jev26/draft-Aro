@@ -204,7 +204,7 @@
     text-decoration: underline;
 }
     </style>
-    <title>Aro Ramamonjy</title>
+    <title>Aro Ramamonjy - Concerts</title>
 
     <link rel="icon" type="image/png" href="/img/favicon_nobg.png" />
     <!-- Lien vers Bootstrap CSS -->
@@ -408,6 +408,7 @@ const rawRows = parsed.data;
             month: Number(getValue(row, "Mois")),
             day: Number(getValue(row, "Jour")),
             time: formatTime(getValue(row, "Heure")),
+            groupe: String(getValue(row, "Groupe") || "").trim(),
             project: String(getValue(row, "Projet") || "").trim(),
             location: String(getValue(row, "Lieu") || "").trim(),
             locationLink: safeUrl(getValue(row, "Lien lieu"))
