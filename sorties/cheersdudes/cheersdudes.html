@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHY79CGXQ2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+
+    gtag('js', new Date());
+    gtag('config', 'G-CHY79CGXQ2');
+  </script>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../js/layout.js"></script>
+
+  <!-- Meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Compositions — Aro Ramamonjy</title>
+
+  <link rel="icon" type="image/png" href="/img/favicon_nobg.png" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../../styles.css" />
+
+  <style>
+
+/* =========================
+   FICHE PROJET
+========================= */
+
+.fiche-projet {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 30px 80px;
+}
+
+
+/* =========================
+   PRESENTATION
+========================= */
+
+.presentation-groupe {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.groupe-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.surtitre {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 15px;
+}
+
+.groupe-infos h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin: 0 0 15px;
+}
+
+.genre {
+  color: var(--color-primary);
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+.description {
+  line-height: 1.8;
+  max-width: 500px;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section-fiche {
+  margin-bottom: 75px;
+}
+
+.section-fiche h2 {
+  font-size: 1.7rem;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+
+/* =========================
+   MUSICIENS
+========================= */
+
+.liste-musiciens {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 40px;
+}
+
+.musicien {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--color-bg-secondary);
+}
+
+.nom-musicien {
+  font-weight: 500;
+}
+
+a:hover {
+  color: var(--color-bg-secondary);
+}
+
+.instrument {
+  opacity: 0.65;
+  text-align: right;
+}
+
+
+/* =========================
+   MEDIAS
+========================= */
+
+.galerie-medias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.media-item {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.media-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s;
+}
+
+.media-item:hover img {
+  opacity: 0.75;
+}
+
+.media-item span {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+
+/* =========================
+   CONCERTS
+========================= */
+
+.concert-groupe {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--color-bg-secondary);
+}
+
+.concert-date {
+  font-weight: 600;
+}
+
+.concert-details {
+  line-height: 1.6;
+}
+
+.concert-details a {
+  color: inherit;
+}
+
+
+/* =========================
+   HISTORIQUE DES CONCERTS
+========================= */
+
+#dates-groupe {
+    max-width: 750px;
+}
+
+.annee-concerts {
+    margin-bottom: 35px;
+}
+
+.annee-titre {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    margin: 0 0 12px;
+    opacity: 0.55;
+}
+
+.date-concert {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 18px 8px;
+    border-bottom: 1px solid var(--color-bg-secondary);
+}
+
+.date-concert-jour {
+    width: 55px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.date-concert-numero {
+    font-size: 1.7rem;
+    line-height: 1.1;
+    font-weight: 500;
+}
+
+.date-concert-mois {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    opacity: 0.6;
+}
+
+.date-concert-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.date-concert-lieu {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.date-concert-lieu a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.date-concert-lieu a:hover {
+    opacity: 0.6;
+}
+
+.date-concert-heure {
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+.date-concert-lien {
+    font-size: 1.1rem;
+    opacity: 0.5;
+}
+
+@media (max-width: 700px) {
+
+    .date-concert {
+        gap: 15px;
+        padding: 15px 5px;
+    }
+
+    .date-concert-numero {
+        font-size: 1.5rem;
+    }
+
+    .date-concert-lieu {
+        font-size: 0.95rem;
+    }
+
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  .fiche-projet {
+    padding: 25px 18px 60px;
+  }
+
+  .presentation-groupe {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 55px;
+  }
+
+  .groupe-photo img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .liste-musiciens {
+    grid-template-columns: 1fr;
+  }
+
+  .galerie-medias {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 12px;
+  }
+
+  .section-fiche {
+    margin-bottom: 55px;
+  }
+
+  .concert-groupe {
+    grid-template-columns: 85px 1fr;
+    gap: 12px;
+  }
+
+}
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <!-- Header -->
+  <header class="header-simple">
+    <div
+      id="header"
+      data-navbar="navbar-default"
+      data-logo="../../img/prenom.png">
+    </div>
+  </header>
+
+  <!-- RETOUR AUX PROJETS -->
+  <div class = 'container mb-3'>    
+    <a href="/projets.html">
+      <button class="btn-red">← Retour aux projets </button>
+    </a>
+  </div>
+
+  <!-- PRESENTATION -->
+  <section class="presentation-groupe">
+
+    <div class="groupe-photo">
+      <img src="cheersdudes.webp"
+      style="max-height: 700px;"
+           alt="Cheers Dudes">
+    </div>
+
+    <div class="groupe-infos">
+      <p class="surtitre">PROJET MUSICAL</p>
+
+      <h1>Cheers Dudes</h1>
+
+      <p class="genre">
+      <a href="https://www.instagram.com/py_ro_ty_ri/" target="_blank"><i class="fab fa-instagram"></i></a>
+      Jazz Groove spontané, improvisation libre
+    </p>
+
+      <p class="description">
+        Nous mêlons des moments avec des standards de jazz, et des moments d'improvisation totale avec un esprit electro-groove acoustique. Le piano est mobile sur roulettes, et l'ampli de basse fonctionne sur batterie et se porte en sac à dos, pour obtenir un groupe très mobile dans l'espace.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- MUSICIENS -->
+  <section class="container section-fiche">
+
+    <h2>Les musiciens</h2>
+
+    <div class="liste-musiciens">
+
+      <div class="musicien">
+        <span class="nom-musicien"><a href="https://www.instagram.com/aimecharmot/">Aimé</a></span>
+        <span class="instrument">Piano et chant</span>
+      </div>
+
+      <div class="musicien">
+        <span class="nom-musicien"><a href="https://www.instagram.com/aroramamonjy/">Aro</a></span>
+        <span class="instrument">Saxophone et basse électrique</span>
+      </div>
+
+      <div class="musicien">
+        <span class="nom-musicien"><a href="https://www.instagram.com/maloronoa/">Malo</a></span>
+        <span class="instrument">Batterie</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MEDIAS -->
+  <section class="container section-fiche">
+
+    <h2>Écouter & découvrir</h2>
+
+    <div class="galerie-medias">
+
+
+      <div class="ratio ratio-16x9">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/CtQ_PDlA_gc/" data-instgrm-version="13"></blockquote>
+<script async src="https://www.instagram.com/embed.js"></script>     
+      </div>
+
+
+      <div class="ratio ratio-16x9">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Cwu62PwoaFb/" data-instgrm-version="13"></blockquote>
+<script async src="https://www.instagram.com/embed.js"></script>     
+      </div>
+
+
+
+    </div>
+
+  </section>
+
+
+  <!-- DATES -->
+  <section class="container section-fiche concerts-groupe">
+
+    <h2>Dates jouées</h2>
+
+    <div id="dates-groupe">
+      <!-- Les concerts seront ajoutés automatiquement -->
+    </div>
+
+  </section>
+
+
+
+  
+  <section class="section-spacing container-fluid">
+
+    <div class="container">
+
+      <!-- Introduction -->
+      <div class="row">
+        <div class="col-12">
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+
+<!-- Bibliothèque utilisée pour lire le Google Sheet -->
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", async function () {
+
+    // =================================
+    // CONFIGURATION
+    // =================================
+
+    // NOM DU GROUPE DE CETTE FICHE
+    const NOM_PROJET = "Cheers Dudes";
+
+    // Même Google Sheet que la page Live
+    const GOOGLE_SHEET_CSV_URL =
+    "https://docs.google.com/spreadsheets/d/1-r8fH_xr5iSM0nO92prwrgmBWW51jowWPRjepTKZRgs/export?format=csv";
+
+    const container = document.getElementById("dates-groupe");
+
+    if (!container) return;
+
+    // =================================
+    // FONCTIONS UTILITAIRES
+    // =================================
+
+    function normalize(value) {
+        return String(value || "")
+            .trim()
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function safeUrl(value) {
+        if (!value) return null;
+
+        try {
+            const url = new URL(String(value).trim());
+
+            if (url.protocol === "https:" ||
+                url.protocol === "http:") {
+                return url.href;
+            }
+        } catch (error) {}
+
+        return null;
+    }
+
+    function formatTime(value) {
+        if (value === null || value === undefined || value === "") {
+            return "";
+        }
+
+        if (typeof value === "number") {
+            const totalMinutes = Math.round(value * 24 * 60);
+            const hours = Math.floor(totalMinutes / 60);
+            const minutes = totalMinutes % 60;
+
+            return String(hours).padStart(2, "0") + "h" +
+                   String(minutes).padStart(2, "0");
+        }
+
+        return String(value).trim()
+            .replace(/^(\d{1,2}):(\d{2})$/, "$1h$2");
+    }
+
+    // =================================
+    // CHARGEMENT DU GOOGLE SHEET
+    // =================================
+
+    try {
+
+        const CACHE_KEY = "concerts_google_sheet_csv_v1";
+        const CACHE_DURATION = 10 * 60 * 1000;
+
+        let csvText = "";
+        let cached = null;
+
+        try {
+            cached = JSON.parse(
+                localStorage.getItem(CACHE_KEY) || "null"
+            );
+        } catch (error) {}
+
+        const cacheIsFresh =
+            cached &&
+            typeof cached.csv === "string" &&
+            Date.now() - cached.timestamp < CACHE_DURATION;
+
+        if (cacheIsFresh) {
+
+            csvText = cached.csv;
+
+        } else {
+
+            try {
+
+                const response = await fetch(GOOGLE_SHEET_CSV_URL);
+
+                if (!response.ok) {
+                    throw new Error("Erreur de chargement Google Sheets");
+                }
+
+                csvText = await response.text();
+
+                if (!csvText || /<html/i.test(csvText.slice(0, 500))) {
+                    throw new Error("Réponse CSV invalide");
+                }
+
+                try {
+                    localStorage.setItem(CACHE_KEY, JSON.stringify({
+                        csv: csvText,
+                        timestamp: Date.now()
+                    }));
+                } catch (error) {}
+
+            } catch (error) {
+
+                if (cached && typeof cached.csv === "string") {
+                    csvText = cached.csv;
+                } else {
+                    throw error;
+                }
+            }
+        }
+
+        // =================================
+        // LECTURE DU CSV
+        // =================================
+
+        const parsed = Papa.parse(csvText, {
+            header: true,
+            skipEmptyLines: true,
+            transformHeader: header => header.trim()
+        });
+
+        const rawRows = parsed.data;
+
+        if (!rawRows.length) {
+            throw new Error("Aucun concert trouvé");
+        }
+
+        // Retrouve les colonnes
+        const headers = Object.keys(rawRows[0]);
+        const columns = {};
+
+        headers.forEach(header => {
+            columns[normalize(header)] = header;
+        });
+
+        function getValue(row, columnName) {
+            const realColumn = columns[normalize(columnName)];
+            return realColumn ? row[realColumn] : "";
+        }
+
+        // =================================
+        // EXTRACTION DES CONCERTS
+        // =================================
+
+        const concerts = rawRows.map(row => ({
+
+            year: Number(getValue(row, "Année")),
+            month: Number(getValue(row, "Mois")),
+            day: Number(getValue(row, "Jour")),
+            time: formatTime(getValue(row, "Heure")),
+
+            project: String(
+                getValue(row, "Projet") || ""
+            ).trim(),
+
+            location: String(
+                getValue(row, "Lieu") || ""
+            ).trim(),
+
+            locationLink: safeUrl(
+                getValue(row, "Lien lieu")
+            )
+
+        })).filter(concert =>
+
+            normalize(concert.project) === normalize(NOM_PROJET) &&
+
+            Number.isInteger(concert.year) &&
+            Number.isInteger(concert.month) &&
+            concert.month >= 1 &&
+            concert.month <= 12 &&
+            Number.isInteger(concert.day) &&
+            concert.day >= 1 &&
+            concert.day <= 31
+
+        );
+
+        // =================================
+        // TRI : PLUS RECENT EN PREMIER
+        // =================================
+
+        concerts.sort((a, b) =>
+            b.year - a.year ||
+            b.month - a.month ||
+            b.day - a.day ||
+            b.time.localeCompare(a.time)
+        );
+
+        // =================================
+        // AFFICHAGE
+        // =================================
+
+if (concerts.length === 0) {
+    container.textContent =
+        "Aucune date enregistrée pour ce projet.";
+    return;
+}
+
+container.innerHTML = "";
+
+const monthNames = [
+    "JAN.", "FÉV.", "MAR.", "AVR.",
+    "MAI", "JUIN", "JUIL.", "AOÛT",
+    "SEP.", "OCT.", "NOV.", "DÉC."
+];
+
+let currentYear = null;
+
+concerts.forEach(concert => {
+
+    // Nouveau bloc année
+    if (concert.year !== currentYear) {
+
+        currentYear = concert.year;
+
+        const yearSection = document.createElement("div");
+        yearSection.className = "annee-concerts";
+
+        const yearTitle = document.createElement("h3");
+        yearTitle.className = "annee-titre";
+        yearTitle.textContent = currentYear;
+
+        yearSection.appendChild(yearTitle);
+        container.appendChild(yearSection);
+    }
+
+    const yearSection = container.lastElementChild;
+
+    // Ligne du concert
+    const item = document.createElement("div");
+    item.className = "date-concert";
+
+    // Date
+    const dateBlock = document.createElement("div");
+    dateBlock.className = "date-concert-jour";
+
+    const day = document.createElement("span");
+    day.className = "date-concert-numero";
+    day.textContent = String(concert.day).padStart(2, "0");
+
+    const month = document.createElement("span");
+    month.className = "date-concert-mois";
+    month.textContent = monthNames[concert.month - 1];
+
+    dateBlock.append(day, month);
+
+    // Informations du concert
+    const info = document.createElement("div");
+    info.className = "date-concert-info";
+
+    const location = document.createElement("div");
+    location.className = "date-concert-lieu";
+
+    if (concert.locationLink) {
+
+        const link = document.createElement("a");
+        link.href = concert.locationLink;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = concert.location;
+
+        location.appendChild(link);
+
+    } else {
+
+        location.textContent = concert.location || "Lieu à préciser";
+
+    }
+
+    info.appendChild(location);
+
+    // Heure facultative
+    if (concert.time) {
+
+        const time = document.createElement("span");
+        time.className = "date-concert-heure";
+        time.textContent = concert.time;
+
+        info.appendChild(time);
+    }
+
+    item.append(dateBlock, info);
+
+    // Indication de lien externe
+    if (concert.locationLink) {
+        const icon = document.createElement("span");
+        icon.className = "date-concert-lien";
+        icon.textContent = "↗";
+        item.appendChild(icon);
+    }
+
+    yearSection.appendChild(item);
+
+});
+} catch (error) {
+
+        console.error("Erreur de chargement des concerts :", error);
+
+        container.textContent =
+            "Impossible de charger les concerts.";
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>
