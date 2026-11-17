@@ -21,7 +21,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Compositions — Aro Ramamonjy</title>
+  <title>Présentation Projet — Pyrotyri</title>
 
   <link rel="icon" type="image/png" href="/img/favicon_nobg.png" />
 
@@ -404,13 +404,13 @@ a:hover {
   <!-- MUSICIENS -->
   <section class="container section-fiche">
 
-    <h2>Les musiciens</h2>
+    <h2>Membres</h2>
 
     <div class="liste-musiciens">
 
       <div class="musicien">
         <span class="nom-musicien"><a href="https://www.instagram.com/loic_fl_/">Loïc Faucher</a></span>
-        <span class="instrument">Lead, Compositeur, Flûte</span>
+        <span class="instrument">Lead, Compositeur, Flûte traversière</span>
       </div>
 
       <div class="musicien">
@@ -443,6 +443,65 @@ a:hover {
 
     <h2>Écouter & découvrir</h2>
 
+    <div class = 'container mb-3'>
+  <div class="row g-4">
+
+      <div class="col-12 col-md-6">
+
+        <div
+          style="
+            position: relative;
+            max-width: 300px;
+            margin: 0 auto;
+            aspect-ratio: 9 / 16;
+          "
+        >
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/KJqq0YhPUXk"
+            title="PYROTYRI - Premier EP à précommander !"
+            style="
+              position: relative;
+              top: 0;
+              left: 0;
+              height: 100%;
+              border: 0;
+            "
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+      </div>
+
+        <div class="col-12 col-md-6">
+        <div
+          style="
+            position: relative; 
+            max-width: 300px;
+            margin: 0 auto;
+            aspect-ratio: 9 / 16;
+          "
+        >
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/pFQ7yf91dHw"
+            title="PYROTYRI - 'Sardine' Live at BCV Concert Hall, Lausanne (CH), 08.05.2026"
+            style="
+              position: relative;
+              top: 0;
+              left: 0;
+              height: 100%;
+              border: 0;
+            "
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+
+      </div>
+        </div>
+
+      </div>     
+    </div>
+
     <div class="galerie-medias">
 
       <a href="https://www.instagram.com/py_ro_ty_ri"
@@ -455,10 +514,15 @@ a:hover {
 
       </a>
 
-      <div class="ratio ratio-16x9">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Dd_E7Lwy8IS/" data-instgrm-version="13"></blockquote>
-<script async src="https://www.instagram.com/embed.js"></script>     
-      </div>
+      <a href="https://pyrotyri.bandcamp.com/album/etincelles"
+         target="_blank"
+         rel="noopener"
+         class="media-item">
+
+        <img src="EP.jpg"
+             alt="Premier EP du groupe">
+
+      </a>
 
       <div class="mt-5 center">        
         <h3>1st single out !</h3>
@@ -694,6 +758,10 @@ document.addEventListener("DOMContentLoaded", async function () {
             day: Number(getValue(row, "Jour")),
             time: formatTime(getValue(row, "Heure")),
 
+            groupe: String(
+                getValue(row, "Groupe") || ""
+            ).trim(),
+
             project: String(
                 getValue(row, "Projet") || ""
             ).trim(),
@@ -708,7 +776,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         })).filter(concert =>
 
-            normalize(concert.project) === normalize(NOM_PROJET) &&
+            normalize(concert.groupe) === normalize(NOM_PROJET) &&
 
             Number.isInteger(concert.year) &&
             Number.isInteger(concert.month) &&
@@ -813,6 +881,16 @@ concerts.forEach(concert => {
     }
 
     info.appendChild(location);
+
+    // Heure facultative
+    if (concert.project) {
+
+        const project = document.createElement("span");
+        project.className = "project";
+        project.textContent = concert.project;
+
+        info.appendChild(project);
+    }
 
     // Heure facultative
     if (concert.time) {
