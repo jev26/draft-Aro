@@ -389,7 +389,7 @@ a:hover {
 
       <p class="genre">
       <a href="https://www.instagram.com/py_ro_ty_ri/" target="_blank"><i class="fab fa-instagram"></i></a>
-      Jazz Groove spontané, improvisation libre
+      Jazz Groove spontané · Improvisation libre
     </p>
 
       <p class="description">
@@ -409,17 +409,17 @@ a:hover {
     <div class="liste-musiciens">
 
       <div class="musicien">
-        <span class="nom-musicien"><a href="https://www.instagram.com/aimecharmot/">Aimé</a></span>
+        <span class="nom-musicien"><a href="https://www.instagram.com/aimecharmot.ch/">Aimé Charmot</a></span>
         <span class="instrument">Piano et chant</span>
       </div>
 
       <div class="musicien">
-        <span class="nom-musicien"><a href="https://www.instagram.com/aroramamonjy/">Aro</a></span>
+        <span class="nom-musicien"><a href="https://www.instagram.com/aroramamonjy/">Aro Ramamonjy</a></span>
         <span class="instrument">Saxophone et basse électrique</span>
       </div>
 
       <div class="musicien">
-        <span class="nom-musicien"><a href="https://www.instagram.com/maloronoa/">Malo</a></span>
+        <span class="nom-musicien"><a href="https://www.instagram.com/maloronoa/">Malo ??</a></span>
         <span class="instrument">Batterie</span>
       </div>
 
@@ -433,23 +433,23 @@ a:hover {
 
     <h2>Écouter & découvrir</h2>
 
-    <div class="galerie-medias">
+    <div class="row g-4">
 
-
-      <div class="ratio ratio-16x9">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/CtQ_PDlA_gc/" data-instgrm-version="13"></blockquote>
+      <div class="col-12 col-md-6">
+       <div classe="center">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CtQ_PDlA_gc/" data-instgrm-version="13"></blockquote>
 <script async src="https://www.instagram.com/embed.js"></script>     
       </div>
-
-
-      <div class="ratio ratio-16x9">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Cwu62PwoaFb/" data-instgrm-version="13"></blockquote>
-<script async src="https://www.instagram.com/embed.js"></script>     
       </div>
 
+      <div class="col-12 col-md-6">
+       <div classe="center">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cwu62PwoaFb/" data-instgrm-version="13"></blockquote>
+<script async src="https://www.instagram.com/embed.js"></script>     
+      </div>
+      </div>
 
-
-    </div>
+      </div>
 
   </section>
 
@@ -653,6 +653,10 @@ document.addEventListener("DOMContentLoaded", async function () {
             day: Number(getValue(row, "Jour")),
             time: formatTime(getValue(row, "Heure")),
 
+            groupe: String(
+                getValue(row, "Groupe") || ""
+            ).trim(),
+
             project: String(
                 getValue(row, "Projet") || ""
             ).trim(),
@@ -667,7 +671,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         })).filter(concert =>
 
-            normalize(concert.project) === normalize(NOM_PROJET) &&
+            normalize(concert.groupe) === normalize(NOM_PROJET) &&
 
             Number.isInteger(concert.year) &&
             Number.isInteger(concert.month) &&
@@ -772,6 +776,16 @@ concerts.forEach(concert => {
     }
 
     info.appendChild(location);
+
+    // Heure facultative
+    if (concert.project) {
+
+        const project = document.createElement("span");
+        project.className = "project";
+        project.textContent = concert.project;
+
+        info.appendChild(project);
+    }
 
     // Heure facultative
     if (concert.time) {
